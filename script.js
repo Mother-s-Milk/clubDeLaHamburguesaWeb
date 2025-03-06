@@ -4,6 +4,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     toggleButton.addEventListener("click", () => {
         navbar.classList.toggle('collapsed');
-        toggleButton.classList.toggle('collapsed');
     });
 });
