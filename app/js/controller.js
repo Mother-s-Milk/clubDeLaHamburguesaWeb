@@ -60,12 +60,10 @@ const controller = {
                             aria-label="Agregar ${producto.nombre} al carrito">
                             <i class="fa-solid fa-plus"></i>
                         </button>
-<span></span>
-                        
+                        <button type="button"><i class="fa-solid fa-eye"></i></button>
                     </div>
                 </div>
             `).join('');
-//<button type="button"><i class="fa-solid fa-eye"></i></button>
             gridMenu.innerHTML = contenidoHTML;
 
             paginador.innerHTML = `

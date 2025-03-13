@@ -658,16 +658,16 @@ button,
 }
   
 .imagenes-hero::-webkit-scrollbar-track {
-    background-color: transparent; /*Color de fondo del track*/
+    background-color: rgba(255, 255, 255, .3); /*Color de fondo del track*/
 }
   
 .imagenes-hero::-webkit-scrollbar-thumb {
-    background-color: #f85c5c; /*Color del thumb*/
+    background-color: #000; /*Color del thumb*/
     border-radius: 7.5px;
 }
   
 .imagenes-hero::-webkit-scrollbar-thumb:hover {
-    background-color: #1e293b; /*Cambia de color al pasar el mouse*/
+    background-color: #333; /*Cambia de color al pasar el mouse*/
 }
   
 .imagenes-hero::-webkit-scrollbar-button {
@@ -701,7 +701,8 @@ button,
     margin: 0; /* Elimina cualquier margen que pueda interferir */
 }
 
-.nombre-americana {
+#nombre-americana {
+    display: block;
     width: 75%;
     bottom: -15px;
 }
@@ -1820,16 +1821,18 @@ button,
         width: 100%;
         max-width: 100%;
     }
+
     .tarjeta-header img:last-child {
         position: absolute;
-        bottom: -9px;
+        bottom: -12px;
         left: 50%; /* Centra la imagen horizontalmente */
         transform: translateX(-50%); /* Ajusta el desplazamiento para lograr el centrado exacto */
-        width: 48%; /* Mantén el tamaño de la imagen */
+        width: 60%; /* Mantén el tamaño de la imagen */
         margin: 0; /* Elimina cualquier margen que pueda interferir */
     }
     
-    .nombre-americana {
+    #nombre-americana {
+        display: block;
         width: 100%;
         bottom: -15px;
     }
