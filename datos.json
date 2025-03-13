@@ -1,0 +1,413 @@
+{
+    "hamburguesas": [
+        {
+            "id": 1,
+            "nombre": "Cheese Simple",
+            "categoria": "Plato principal",
+            "precioUnitario": 8000,
+            "fechaAlta": "",
+            "estado": 1,
+            "urlImagen": "app/img/comidas/cheese.jpg"
+        },
+        {
+            "id": 2,
+            "nombre": "Cheese Doble",
+            "categoria": "Plato principal",
+            "precioUnitario": 10500,
+            "fechaAlta": "",
+            "estado": 1,
+            "urlImagen": "app/img/comidas/cheese.jpg"
+        },
+        {
+            "id": 3,
+            "nombre": "Cheese Triple",
+            "categoria": "Plato principal",
+            "precioUnitario": 12500,
+            "fechaAlta": "",
+            "estado": 1,
+            "urlImagen": "app/img/comidas/cheese.jpg"
+        },
+        {
+            "id": 4,
+            "nombre": "Cheese Cuádruple",
+            "categoria": "Plato principal",
+            "precioUnitario": 14500,
+            "fechaAlta": "",
+            "estado": 1,
+            "urlImagen": "app/img/comidas/cheese.jpg"
+        },
+        {
+            "id": 5,
+            "nombre": "Bacon Simple",
+            "categoria": "Plato principal",
+            "precioUnitario": 9000,
+            "fechaAlta": "",
+            "estado": 1,
+            "urlImagen": "app/img/comidas/bacon.jpg"
+        },
+        {
+            "id": 6,
+            "nombre": "Bacon Doble",
+            "categoria": "Plato principal",
+            "precioUnitario": 11500,
+            "fechaAlta": "",
+            "estado": 1,
+            "urlImagen": "app/img/comidas/bacon.jpg"
+        },
+        {
+            "id": 7,
+            "nombre": "Bacon Triple",
+            "categoria": "Plato principal",
+            "precioUnitario": 13500,
+            "fechaAlta": "",
+            "estado": 1,
+            "urlImagen": "app/img/comidas/bacon.jpg"
+        },
+        {
+            "id": 8,
+            "nombre": "Bacon Cuádruple",
+            "categoria": "Plato principal",
+            "precioUnitario": 15500,
+            "fechaAlta": "",
+            "estado": 1,
+            "urlImagen": "app/img/comidas/bacon.jpg"
+        },
+        {
+            "id": 9,
+            "nombre": "Cuarto de libra Simple",
+            "categoria": "Plato principal",
+            "precioUnitario": 9500,
+            "fechaAlta": "",
+            "estado": 1,
+            "urlImagen": "app/img/comidas/cuarto.jpg"
+        },
+        {
+            "id": 10,
+            "nombre": "Cuarto de libra Doble",
+            "categoria": "Plato principal",
+            "precioUnitario": 11000,
+            "fechaAlta": "",
+            "estado": 1,
+            "urlImagen": "app/img/comidas/cuarto.jpg"
+        },
+        {
+            "id": 11,
+            "nombre": "Americana Simple",
+            "categoria": "Plato principal",
+            "precioUnitario": 9500,
+            "fechaAlta": "",
+            "estado": 1,
+            "urlImagen": "app/img/comidas/americana.jpg"
+        },
+        {
+            "id": 12,
+            "nombre": "Americana Doble",
+            "categoria": "Plato principal",
+            "precioUnitario": 11000,
+            "fechaAlta": "",
+            "estado": 1,
+            "urlImagen": "app/img/comidas/americana.jpg"
+        },
+        {
+            "id": 13,
+            "nombre": "Palta paradise Simple",
+            "categoria": "Plato principal",
+            "precioUnitario": 10500,
+            "fechaAlta": "",
+            "estado": 1,
+            "urlImagen": "app/img/comidas/palta.jpg"
+        },
+        {
+            "id": 14,
+            "nombre": "Palta paradise Doble",
+            "categoria": "Plato principal",
+            "precioUnitario": 12500,
+            "fechaAlta": "",
+            "estado": 1,
+            "urlImagen": "app/img/comidas/palta.jpg"
+        },
+        {
+            "id": 15,
+            "nombre": "Clásica Simple",
+            "categoria": "Plato principal",
+            "precioUnitario": 9500,
+            "fechaAlta": "",
+            "estado": 1,
+            "urlImagen": "app/img/comidas/clasica.jpg"
+        },
+        {
+            "id": 16,
+            "nombre": "Clásica Doble",
+            "categoria": "Plato principal",
+            "precioUnitario": 11000,
+            "fechaAlta": "",
+            "estado": 1,
+            "urlImagen": "app/img/comidas/clasica.jpg"
+        },
+        {
+            "id": 17,
+            "nombre": "Argentina Simple",
+            "categoria": "Plato principal",
+            "precioUnitario": 9500,
+            "fechaAlta": "",
+            "estado": 1,
+            "urlImagen": "app/img/comidas/argentina.jpg"
+        },
+        {
+            "id": 18,
+            "nombre": "Argentina Doble",
+            "categoria": "Plato principal",
+            "precioUnitario": 11000,
+            "fechaAlta": "",
+            "estado": 1,
+            "urlImagen": "app/img/comidas/argentina.jpg"
+        }
+    ],
+    "papas": [
+        {
+            "id": 1,
+            "nombre": "Papas fritas",
+            "categoria": "Acompañante",
+            "precioUnitario": 5000,
+            "fechaAlta": "",
+            "estado": 1,
+            "urlImagen": "app/img/acompañantes/cajaPapas.jpg"
+        },
+        {
+            "id": 2,
+            "nombre": "Papas fritas con cheddar",
+            "categoria": "Acompañante",
+            "precioUnitario": 7000,
+            "fechaAlta": "",
+            "estado": 1,
+            "urlImagen": "app/img/acompañantes/papasCheddar.jpg"
+        },
+        {
+            "id": 3,
+            "nombre": "Cono de papas fritas",
+            "categoria": "Acompañante",
+            "precioUnitario": 5000,
+            "fechaAlta": "",
+            "estado": 1,
+            "urlImagen": "app/img/acompañantes/conoPapas.webp"
+        }
+    ],
+    "bebidas": [
+        {
+            "id": 1,
+            "nombre": "Lata Pepsi",
+            "categoria": "Gaseosa",
+            "idProveedor": 1,
+            "precioUnitario": 1000,
+            "stockActual": 10,
+            "stockMinimo": 5
+        },
+        {
+            "id": 2,
+            "nombre": "Lata 7UP",
+            "categoria": "Gaseosa",
+            "idProveedor": 1,
+            "precioUnitario": 1000,
+            "stockActual": 20,
+            "stockMinimo": 10
+        },
+        {
+            "id": 3,
+            "nombre": "Lata Mirinda",
+            "categoria": "Gaseosa",
+            "idProveedor": 1,
+            "precioUnitario": 1000,
+            "stockActual": 30,
+            "stockMinimo": 15
+        },
+        {
+            "id": 4,
+            "nombre": "Lata Pepsi Black",
+            "categoria": "Gaseosa",
+            "idProveedor": 1,
+            "precioUnitario": 1000,
+            "stockActual": 30,
+            "stockMinimo": 15
+        },
+        {
+            "id": 5,
+            "nombre": "Agua saborizada pomelo",
+            "categoria": "Agua",
+            "idProveedor": 1,
+            "precioUnitario": 1000,
+            "stockActual": 15,
+            "stockMinimo": 5
+        },
+        {
+            "id": 6,
+            "nombre": "Agua saborizada limón",
+            "categoria": "Agua",
+            "idProveedor": 1,
+            "precioUnitario": 1000,
+            "stockActual": 15,
+            "stockMinimo": 5
+        },
+        {
+            "id": 7,
+            "nombre": "Agua sin gas",
+            "categoria": "Agua",
+            "idProveedor": 1,
+            "precioUnitario": 1000,
+            "stockActual": 15,
+            "stockMinimo": 5
+        },
+        {
+            "id": 8,
+            "nombre": "Porron Stella Artois",
+            "categoria": "Cerveza",
+            "idProveedor": 1,
+            "precioUnitario": 1000,
+            "stockActual": 17,
+            "stockMinimo": 7
+        },
+        {
+            "id": 9,
+            "nombre": "Porron Corona",
+            "categoria": "Cerveza",
+            "idProveedor": 1,
+            "precioUnitario": 1000,
+            "stockActual": 13,
+            "stockMinimo": 4
+        },
+        {
+            "id": 10,
+            "nombre": "Hazy Ipa",
+            "categoria": "Cerveza",
+            "idProveedor": 3,
+            "precioUnitario": 1000,
+            "stockActual": 13,
+            "stockMinimo": 4
+        },
+        {
+            "id": 11,
+            "nombre": "Centennial Blonde",
+            "categoria": "Cerveza",
+            "idProveedor": 3,
+            "precioUnitario": 1000,
+            "stockActual": 13,
+            "stockMinimo": 4
+        },
+        {
+            "id": 12,
+            "nombre": "Siga Siga",
+            "categoria": "Cerveza",
+            "idProveedor": 3,
+            "precioUnitario": 1000,
+            "stockActual": 13,
+            "stockMinimo": 4
+        },
+        {
+            "id": 13,
+            "nombre": "American Ipa",
+            "categoria": "Cerveza",
+            "idProveedor": 3,
+            "precioUnitario": 1000,
+            "stockActual": 13,
+            "stockMinimo": 4
+        },
+        {
+            "id": 14,
+            "nombre": "Stout",
+            "categoria": "Cerveza",
+            "idProveedor": 3,
+            "precioUnitario": 1000,
+            "stockActual": 13,
+            "stockMinimo": 4
+        },
+        {
+            "id": 15,
+            "nombre": "AAA",
+            "categoria": "Cerveza",
+            "idProveedor": 3,
+            "precioUnitario": 1000,
+            "stockActual": 13,
+            "stockMinimo": 4
+        },
+        {
+            "id": 16,
+            "nombre": "Tamo Chelo",
+            "categoria": "Cerveza",
+            "idProveedor": 2,
+            "precioUnitario": 1000,
+            "stockActual": 13,
+            "stockMinimo": 4
+        },
+        {
+            "id": 17,
+            "nombre": "Haka",
+            "categoria": "Cerveza",
+            "idProveedor": 2,
+            "precioUnitario": 1000,
+            "stockActual": 13,
+            "stockMinimo": 4
+        },
+        {
+            "id": 18,
+            "nombre": "American Ipa",
+            "categoria": "Cerveza",
+            "idProveedor": 2,
+            "precioUnitario": 1000,
+            "stockActual": 13,
+            "stockMinimo": 4
+        },
+        {
+            "id": 19,
+            "nombre": "Session Ipa",
+            "categoria": "Cerveza",
+            "idProveedor": 2,
+            "precioUnitario": 1000,
+            "stockActual": 13,
+            "stockMinimo": 4
+        },
+        {
+            "id": 20,
+            "nombre": "MetaVerso y Porquería",
+            "categoria": "Cerveza",
+            "idProveedor": 2,
+            "precioUnitario": 1000,
+            "stockActual": 13,
+            "stockMinimo": 4
+        },
+        {
+            "id": 21,
+            "nombre": "A Son de Que",
+            "categoria": "Cerveza",
+            "idProveedor": 2,
+            "precioUnitario": 1000,
+            "stockActual": 13,
+            "stockMinimo": 4
+        },
+        {
+            "id": 22,
+            "nombre": "Hoppy Golden",
+            "categoria": "Cerveza",
+            "idProveedor": 2,
+            "precioUnitario": 1000,
+            "stockActual": 13,
+            "stockMinimo": 4
+        },
+        {
+            "id": 23,
+            "nombre": "Fuaa Neipa Argenta",
+            "categoria": "Cerveza",
+            "idProveedor": 2,
+            "precioUnitario": 1000,
+            "stockActual": 13,
+            "stockMinimo": 4
+        },
+        {
+            "id": 24,
+            "nombre": "Mundo Trambolico",
+            "categoria": "Cerveza",
+            "idProveedor": 2,
+            "precioUnitario": 1000,
+            "stockActual": 13,
+            "stockMinimo": 4
+        }
+    ]
+}
