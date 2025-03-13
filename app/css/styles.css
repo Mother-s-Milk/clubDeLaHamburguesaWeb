@@ -643,33 +643,67 @@ button,
 }
 
 .imagenes-hero {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
-    gap: 30px; /* Espacio entre columnas (ajústalo según necesites) */
-    width: 100%; /* Se adapta al tamaño del contenedor padre */
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory; /* Hace que las tarjetas se ajusten en el scroll */
+    padding-bottom: 30px; /* Espaciado para que no corte la sombra del botón*/
+    width: 100%;
+    max-width: 1440px;
+}
+
+.imagenes-hero::-webkit-scrollbar {
+    height: 3px; /*Ancho de la barra de desplazamiento*/
+    border-radius: 7.5px;
+}
+  
+.imagenes-hero::-webkit-scrollbar-track {
+    background-color: transparent; /*Color de fondo del track*/
+}
+  
+.imagenes-hero::-webkit-scrollbar-thumb {
+    background-color: #f85c5c; /*Color del thumb*/
+    border-radius: 7.5px;
+}
+  
+.imagenes-hero::-webkit-scrollbar-thumb:hover {
+    background-color: #1e293b; /*Cambia de color al pasar el mouse*/
+}
+  
+.imagenes-hero::-webkit-scrollbar-button {
+    display: none; /*Esto oculta las flechas de arriba y abajo*/
 }
 
 .tarjeta-header {
     position: relative;
-    transition: transform .3s ease;
-}
-
-.tarjeta-header:hover {
-    transform: scale(1.03);
+    border: 1px solid #e0e0e0;
+    border-radius: 15px;
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.05);
+    
+    flex: 0 0 auto; /* Mantiene el tamaño sin contraerse */
+    width: 645px; /* Tamaño fijo para cada tarjeta */
+    max-width: 645px;
+    scroll-snap-align: center;
 }
 
 .tarjeta-header img {
-    width: 100%;
+    width: 75%;
     display: block;
+    margin: auto;
 }
 
 .tarjeta-header img:last-child {
     position: absolute;
-    bottom: -15px;
+    bottom: -9px;
     left: 50%; /* Centra la imagen horizontalmente */
     transform: translateX(-50%); /* Ajusta el desplazamiento para lograr el centrado exacto */
-    width: 75%; /* Mantén el tamaño de la imagen */
+    width: 48%; /* Mantén el tamaño de la imagen */
     margin: 0; /* Elimina cualquier margen que pueda interferir */
+}
+
+.nombre-americana {
+    width: 75%;
+    bottom: -15px;
 }
 
 .botones-hero {
@@ -1256,6 +1290,18 @@ button,
         padding: 30px 75px;
     }
 }
+@media screen and (max-width: 1425px) {
+    .tarjeta-header {
+        width: 630px;
+        max-width: 630px;
+    }
+}
+@media screen and (max-width: 1405px) {
+    .tarjeta-header {
+        width: 600px;
+        max-width: 600px;
+    }
+}
 @media screen and (max-width: 1400px) {
     .section-menu {
         padding: 30px 60px;
@@ -1271,6 +1317,12 @@ button,
         padding: 30px 30px;
     }
 }
+@media screen and (max-width: 1335px) {
+    .tarjeta-header {
+        width: 570px;
+        max-width: 570px;
+    }
+}
 @media screen and (max-width: 1310px) {
     .info-burger p:first-child {
         font-size: 21px;
@@ -1281,59 +1333,38 @@ button,
         height: 33px;
     }
 }
+@media screen and (max-width: 1275px) {
+    .tarjeta-header {
+        width: 540px;
+        max-width: 540px;
+    }
+}
+@media screen and (max-width: 1215px) {
+    .tarjeta-header {
+        width: 510px;
+        max-width: 510px;
+    }
+}
 @media screen and (max-width: 1182px) {
     .grid-menu {
         gap: 15px;
     }
-    /*.info-burger p:first-child {
-        font-size: 18px;
+}
+@media screen and (max-width: 1155px) {
+    .tarjeta-header {
+        width: 480px;
+        max-width: 480px;
     }
-    
-    .botones-burger button {
-        width: 30px;
-        height: 30px;
-    }*/
 }
 @media screen and (max-width: 1152px) {
     .section-menu {
         padding: 15px;
         gap: 15px;
     }
-}
-@media screen and (max-width: 1138px) {
-    /*.info-burger p {
-        font-size: 18px;
-    }*/
-    /*.section-menu {
-        padding: 30px 45px;
-    }*/
-}
-@media screen and (max-width: 1128px) {
-    /*.info-burger p:first-child {
-        font-size: 21px;
-    }*/
-    /*.tarjeta-menu {
-        padding: 15px;
-    }*/
-}
-@media screen and (max-width: 1028px) {
-    /*.grid-menu {
+    .botones-filtros {
         gap: 15px;
-    }
-    .tarjeta-menu {
         padding: 15px;
     }
-    .botones-burger {
-        gap: 7.5px;
-    }
-    
-    .botones-burger button {
-        padding: 3.75px;
-        width: 33px;
-        height: 33px;
-        border-radius: 7.5px;
-        font-size: 15px;
-    }*/
 }
 @media screen and (max-width: 1122px) {
     .info-burger p:first-child {
@@ -1344,11 +1375,18 @@ button,
         font-weight: 600;
         font-size: 15px;
     }
-    
-    /*.botones-burger button {
-        width: 30px;
-        height: 30px;
-    }*/
+}
+@media screen and (max-width: 1095px) {
+    .tarjeta-header {
+        width: 450px;
+        max-width: 450px;
+    }
+}
+@media screen and (max-width: 1035px) {
+    .tarjeta-header {
+        width: 420px;
+        max-width: 420px;
+    }
 }
 @media screen and (max-width: 997px) {
     .section-menu {
@@ -1377,6 +1415,12 @@ button,
         font-size: 17px;
     }
 }
+@media screen and (max-width: 975px) {
+    .tarjeta-header {
+        width: 390px;
+        max-width: 390px;
+    }
+}
 @media screen and (max-width: 960px) {
     .section {
         padding: 30px 75px;
@@ -1402,6 +1446,12 @@ button,
         padding: 30px 75px;
     }
 }
+@media screen and (max-width: 915px) {
+    .tarjeta-header {
+        width: 360px;
+        max-width: 360px;
+    }
+}
 @media screen and (max-width: 900px) {
     .logo {
         width: 90px;
@@ -1425,11 +1475,6 @@ button,
         padding: 30px 60px;
     }
 }
-@media screen and (max-width: 877px) {
-    /*.section-menu {
-        padding: 30px;
-    }*/
-}
 @media screen and (max-width: 870px) {
     .section {
         padding: 30px 30px;
@@ -1445,10 +1490,13 @@ button,
         padding: 30px 45px;
     }
 }
+@media screen and (max-width: 855px) {
+    .tarjeta-header {
+        width: 330px;
+        max-width: 330px;
+    }
+}
 @media screen and (max-width: 840px) {
-    /**********************/
-    /*Seccion de servicios*/
-    /**********************/
     .servicios-main {
         gap: 15px;
     }
@@ -1459,18 +1507,12 @@ button,
     }
 }
 @media screen and (max-width: 810px) {
-    /**********************/
-    /*Seccion de servicios*/
-    /**********************/
     .servicios-main > div {
        width: calc(33.3% - 15px);
        max-width: calc(33.3% - 15px);
     }
 }
 @media screen and (max-width: 799px) {
-    /**********************/
-    /*Seccion de servicios*/
-    /**********************/
     .servicios-main > div {
         width: 210px;
         max-width: 210px;
@@ -1481,10 +1523,31 @@ button,
         gap: 15px;
     }
 }
+@media screen and (max-width: 795px) {
+    .tarjeta-header {
+        width: 300px;
+        max-width: 300px;
+    }
+}
 @media screen and (max-width: 783px) {
     .section-menu {
         padding: 15px;
         gap: 15px;
+    }
+    .botones-filtros button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-color: #fff;
+        padding: 7.5px;
+        border-radius: 50%;
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, .3);
+    }
+    
+    .botones-filtros button img {
+        width: 33px;
+        height: 33px;
     }
 }
 @media screen and (max-width: 753px) {
@@ -1505,11 +1568,6 @@ button,
     .botones-hero button {
         padding: 9px 18px;
     }
-
-    /*.carrito-container {
-        width: 390px;
-        max-width: 390px;
-    }*/
 }
 @media screen and (max-width: 720px) {
     .section {
@@ -1520,25 +1578,28 @@ button,
     }
     .ofertas-especiales-main {
         gap: 15px;
-        padding-bottom: 45px; /* Espaciado para que no corte la sombra del botón */
+        padding-bottom: 45px;
     }
 }
 @media screen and (max-width: 689px) {
-    /**********************/
-    /*Seccion de servicios*/
-    /**********************/
     .servicios-main > div {
         width: calc(33.3% - 15px);
        max-width: calc(33.3% - 15px);
     }
 }
 @media screen and (max-width: 679px) {
-    /**********************/
-    /*Seccion de servicios*/
-    /**********************/
     .servicios-main > div {
         width: calc(36% - 15px);
        max-width: calc(36% - 15px);
+    }
+}
+@media screen and (max-width: 669px) {
+    .tarjeta-menu {
+        padding: 15px;
+    }
+    .botones-filtros button img {
+        width: 30px;
+        height: 30px;
     }
 }
 @media screen and (max-width: 660px) {
@@ -1546,15 +1607,7 @@ button,
         width: 570px;
     }
 }
-@media screen and (max-width: 669px) {
-    .tarjeta-menu {
-        padding: 15px;
-    }
-}
 @media screen and (max-width: 630px) {
-    /**********************/
-    /*Seccion de servicios*/
-    /**********************/
     .servicios-main > div {
         width: calc(39% - 15px);
        max-width: calc(39% - 15px);
@@ -1602,9 +1655,6 @@ button,
     }
 }
 @media screen and (max-width: 584px) {
-    /**********************/
-    /*Seccion de servicios*/
-    /**********************/
     .servicios-main > div {
         width: calc(42% - 15px);
         max-width: calc(42% - 15px);
@@ -1621,18 +1671,12 @@ button,
     }
 }
 @media screen and (max-width: 544px) {
-    /**********************/
-    /*Seccion de servicios*/
-    /**********************/
     .servicios-main > div {
         width: calc(50% - 15px);
         max-width: calc(50% - 15px);
     }
 }
 @media screen and (max-width: 521px) {
-    /**********************/
-    /*Seccion de servicios*/
-    /**********************/
     .servicios-main > div {
         width: calc(45% - 15px);
         max-width: calc(45% - 15px);
@@ -1644,9 +1688,6 @@ button,
     }
 }
 @media screen and (max-width: 510px) {
-    /**********************/
-    /*Seccion de servicios*/
-    /**********************/
     .servicios-main > div {
         width: calc(48% - 15px);
         max-width: calc(48% - 15px);
@@ -1661,9 +1702,6 @@ button,
     }
 }
 @media screen and (max-width: 480px) {
-    /**********************/
-    /*Seccion de servicios*/
-    /**********************/
     .servicios-main > div {
         width: calc(50% - 15px);
         max-width: calc(50% - 15px);
@@ -1679,9 +1717,6 @@ button,
     }
 }
 @media screen and (max-width: 462px) {
-    /**********************/
-    /*Seccion de servicios*/
-    /**********************/
     .servicios-main > div {
         width: calc(57%);
         max-width: calc(57%);
@@ -1703,33 +1738,11 @@ button,
     .tarjeta-oferta {
         width: 360px;
     }
-    /*.info-oferta h3 {
-        font-size: 21px;
-    }
-    .info-oferta > p:last-child {
-        font-size: 18px;
-    }
-    .info-oferta i {
-        font-size: 18px;
-        width: 21px;
-    }*/
     .info-oferta > div span p {
         font-size: 17px;
     }
-    
-    /*.tarjeta-oferta button {
-        padding: 9px 15px;
-        font-size: 15px;
-        bottom: -21px;
-    }
-    .tarjeta-oferta {
-        padding-bottom: 21px;
-    }*/
 }
 @media screen and (max-width: 435px) {
-    /**********************/
-    /*Seccion de servicios*/
-    /**********************/
     .servicios-main > div {
         width: calc(60%);
        max-width: calc(60%);
@@ -1752,16 +1765,12 @@ button,
     }
 }
 @media screen and (max-width: 414px) {
-    /**********************/
-    /*Seccion de servicios*/
-    /**********************/
     .servicios-main > div {
         width: calc(63%);
         max-width: calc(63%);
     }
 }
 @media screen and (max-width: 413px) {
-    /*Nombre del producto*/
     .info-producto p:first-child {
         font-size: 15px;
     }
@@ -1801,10 +1810,31 @@ button,
         height: 75px;
     }
 }
+@media screen and (max-width: 405px) {
+    .tarjeta-header img {
+        width: 100%;
+        display: block;
+        margin: auto;
+    }
+    .tarjeta-header {
+        width: 100%;
+        max-width: 100%;
+    }
+    .tarjeta-header img:last-child {
+        position: absolute;
+        bottom: -9px;
+        left: 50%; /* Centra la imagen horizontalmente */
+        transform: translateX(-50%); /* Ajusta el desplazamiento para lograr el centrado exacto */
+        width: 48%; /* Mantén el tamaño de la imagen */
+        margin: 0; /* Elimina cualquier margen que pueda interferir */
+    }
+    
+    .nombre-americana {
+        width: 100%;
+        bottom: -15px;
+    }
+}
 @media screen and (max-width: 396px) {
-    /**********************/
-    /*Seccion de servicios*/
-    /**********************/
     .servicios-main > div {
         width: calc(66%);
        max-width: calc(66%);
@@ -1824,34 +1854,6 @@ button,
     .info-oferta > div span p {
         font-size: 15px;
     }
-    /*.tarjeta-carrito > img {
-        width: 60px;
-    }
-    
-    .info-producto p:first-child {
-        font-size: 15px;
-    }
-    
-    .tarjeta-carrito p:last-of-type {
-        font-size: 15px;
-    }
-
-    .carrito-footer > p {
-        font-size: 15px;
-    }
-
-    .footer-carrito-botones button {
-        padding: 7.5px 15px;
-        box-shadow: 3px 3px 1px rgba(0, 0, 0, 1);
-        color: #fff;
-        text-shadow: 0px 0px 3px rgba(0, 0, 0, .5);
-        border: 1px solid #000;
-        border-radius: 30px;
-        font-size: 15px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: background-color 0.3s ease, box-shadow .2s ease;
-    }*/
 }
 @media screen and (max-width: 385px) {
     .info-burger p:first-child {
@@ -1864,9 +1866,6 @@ button,
     }
 }
 @media screen and (max-width: 379px) {
-    /**********************/
-    /*Seccion de servicios*/
-    /**********************/
     .servicios-main > div {
         width: calc(69%);
        max-width: calc(69%);
@@ -1875,13 +1874,9 @@ button,
 @media screen and (max-width: 375px) {
     .tarjeta-carrito {
         gap: 7.5px;
-        /*padding: 7.5px;*/
     }
 }
 @media screen and (max-width: 364px) {
-    /**********************/
-    /*Seccion de servicios*/
-    /**********************/
     .servicios-main > div {
         width: calc(75%);
        max-width: calc(75%);
@@ -1896,7 +1891,6 @@ button,
     }
     .tarjeta-oferta button {
         width: 57%;
-        /*padding: 7.5px 15px;*/
     }
 }
 @media screen and (max-width: 345px) {
@@ -1943,9 +1937,12 @@ button,
         width: 60px;
         height: 60px;
     }
-
     .botones-hero {
         flex-direction: column;
+    }
+    .botones-filtros button img {
+        width: 27px;
+        height: 27px;
     }
 }
 @media screen and (max-width: 330px) {
@@ -1969,21 +1966,15 @@ button,
     }
 }
 @media screen and (max-width: 337px) {
-    /**********************/
-    /*Seccion de servicios*/
-    /**********************/
     .servicios-main > div {
         width: calc(81%);
         max-width: calc(81%);
     }
 }
 @media screen and (max-width: 315px) {
-    /**********************/
-    /*Seccion de servicios*/
-    /**********************/
     .servicios-main > div {
         width: calc(87%);
-       max-width: calc(87%);
+        max-width: calc(87%);
     }
 }
 @media screen and (max-width: 312px) {
@@ -2000,9 +1991,6 @@ button,
     }
 }
 @media screen and (max-width: 295px) {
-    /**********************/
-    /*Seccion de servicios*/
-    /**********************/
     .servicios-main > div {
         width: calc(90%);
        max-width: calc(90%);
@@ -2012,17 +2000,11 @@ button,
     }
 }
 @media screen and (max-width: 288px) {
-    /*.footer-carrito-botones > div {
-        flex-direction: column;
-    }*/
     .footer-carrito-botones button {
         font-size: 12px;
     }
 }
 @media screen and (max-width: 286px) {
-    /**********************/
-    /*Seccion de servicios*/
-    /**********************/
     .servicios-main > div {
         width: calc(96%);
        max-width: calc(96%);
@@ -2056,6 +2038,14 @@ button,
     
         color: #fff;
         font-size: 12px;
+    }
+    .botones-filtros {
+        gap: 7.5px;
+        padding: 7.5px;
+    }
+    .botones-filtros button img {
+        width: 24px;
+        height: 24px;
     }
 }
 @media screen and (max-width: 270px) {
@@ -2191,12 +2181,6 @@ button,
     .carrito-container {
         width: 360px;
         max-width: 360px;
-    }
-}
-
-@media screen and (max-width: 615px) {
-    .tarjeta-oferta {
-        width: 480px;
     }
 }
 
