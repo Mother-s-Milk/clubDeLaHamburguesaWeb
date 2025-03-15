@@ -1,4 +1,17 @@
 const service = {
+    consultarHamburguesaMasVendida: () => {
+        return fetch('datos.json')
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            return data.masVendida;
+        })
+        .catch((error) => {
+            console.error("Error en la petición: ", error);
+            throw error;
+        });
+    },
     consultarPlatosPrincipales: () => {
         return fetch('datos.json')
         .then(response => {

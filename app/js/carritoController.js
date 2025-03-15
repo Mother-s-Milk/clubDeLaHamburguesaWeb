@@ -15,6 +15,7 @@ const carritoController = {
         metodoPago: '' ,
         detallesPedido: ''
     },
+    precioDelivery: 5000.00,
     save: (id, nombre, categoria, precioUnitario, urlImagen) => {
         let productos = carritoService.list();
         console.log("Productos en el carrito:", productos);
@@ -67,25 +68,25 @@ const carritoController = {
     list: () => {
         let productosCarrito = carritoService.list();
         let carritoFooter = document.getElementById('carrito-footer');
-
+    
         // Mostrar u ocultar el pie del carrito
         carritoFooter.classList.toggle('hidden', productosCarrito.length === 0);
-
+    
         // Crear un objeto para organizar productos por categorías
         let categorias = {
             "Plato principal": [],
             "Acompañante": [],
             "Bebida": []
         };
-
+    
         productosCarrito.forEach(producto => {
             if (categorias[producto.categoria]) {
                 categorias[producto.categoria].push(producto);
             }
         });
-
-        let total = 0;
-
+    
+        let subtotalProductos = 0;
+    
         // Función que genera HTML para cada categoría
         const generarHTMLCategoria = (categoria, productos, contenedor) => {
             contenedor.innerHTML = '';
@@ -109,24 +110,60 @@ const carritoController = {
                     </div>
                     `;
                     contenedor.insertAdjacentHTML('beforeend', tarjeta);
-                    total += producto.precioUnitario * producto.cantidad;
+                    subtotalProductos += producto.precioUnitario * producto.cantidad;
                 });
             } else {
                 contenedor.innerHTML = `<h2 class="mensaje-categoria-carro">No hay ${categoria.toLowerCase()} cargados</h2>`;
             }
         };
-
+    
         // Actualiza las categorías
         generarHTMLCategoria("Platos principales", categorias["Plato principal"], document.getElementById('platos-principales-carrito'));
         generarHTMLCategoria("Acompañantes", categorias["Acompañante"], document.getElementById('acompañantes-carrito'));
         generarHTMLCategoria("Bebidas", categorias["Bebida"], document.getElementById('bebidas-carrito'));
-
+    
         // Actualiza los totales
         let totalProductos = document.getElementById('total-productos');
-        if (totalProductos) totalProductos.textContent = `$${total.toFixed(2)}`;
+        if (totalProductos) totalProductos.textContent = `$${subtotalProductos.toFixed(2)}`;
+    
+        let total = subtotalProductos; // Asegúrate de que el total sea numérico
+    
+        // Escuchar el cambio en el select "pedido-tipo"
+        document.getElementById("pedido-tipo").addEventListener("change", function() {
+            // Obtener el tipo de pedido seleccionado
+            let tipoPedido = document.getElementById("pedido-tipo").value;
+    
+            // Si el tipo de pedido es "Delivery", agregamos el monto del delivery
+            let delivery = tipoPedido === "Delivery" ? carritoController.precioDelivery : 0;
+    
+            // Calcular el total (subtotal + delivery)
+            total = subtotalProductos + delivery;
+    
+            // Actualizar el total con delivery
+            let totalDelivery = document.getElementById('total-delivery');
+            if (totalDelivery) totalDelivery.textContent = `$${delivery}`;
+            let totalCarrito = document.getElementById('total-carrito');
+            if (totalCarrito) totalCarrito.textContent = `$${total.toFixed(2)}`;
+        });
 
+        // Obtener el tipo de pedido seleccionado
+        let tipoPedido = document.getElementById("pedido-tipo").value;
+    
+        // Si el tipo de pedido es "Delivery", agregamos el monto del delivery
+        let delivery = tipoPedido === "Delivery" ? carritoController.precioDelivery : 0;
+
+        // Calcular el total (subtotal + delivery)
+        total = subtotalProductos + delivery;
+
+        // Actualizar el total con delivery
+        let totalDelivery = document.getElementById('total-delivery');
+        if (totalDelivery) totalDelivery.textContent = `$${delivery}`;
         let totalCarrito = document.getElementById('total-carrito');
         if (totalCarrito) totalCarrito.textContent = `$${total.toFixed(2)}`;
+    
+        // Actualizar el total final del carrito
+        /*let totalCarrito = document.getElementById('total-carrito');
+        if (totalCarrito) totalCarrito.textContent = `$${total.toFixed(2)}`;*/
     },
     delete: (id, nombre) => {
         console.log('Eliminando ' + id + " " + nombre);
@@ -164,10 +201,6 @@ const carritoController = {
             errores.tipoPedido = "Debe seleccionar un tipo.";
         }
 
-        if (!pedido.direccion.trim()) {
-            errores.direccion = "Debe ingresar una dirección.";
-        }
-
         if (!pedido.metodoPago.trim()) {
             errores.metodoPago = "Debe seleccionar un método de pago.";
         }
@@ -177,7 +210,6 @@ const carritoController = {
     mostrarErrores: (errores) => {
         document.getElementById("error-pedido-nombre").textContent = errores.nombre || "";
         document.getElementById("error-pedido-tipo").textContent = errores.tipoPedido || "";
-        document.getElementById("error-pedido-direccion").textContent = errores.direccion || "";
         document.getElementById("error-pedido-metodo-pago").textContent = errores.metodoPago || "";
     },
     limpiarCamposErrores: () => {
@@ -187,74 +219,81 @@ const carritoController = {
         });
     },
     enviarMensaje: () => {
-        carritoController.pedido.nombre = document.getElementById('pedido-nombre').value;
-        carritoController.pedido.tipoPedido = document.getElementById('pedido-tipo').value;
-        carritoController.pedido.direccion = document.getElementById('pedido-direccion').value;
-        carritoController.pedido.metodoPago = document.getElementById('pedido-metodo-pago').value;
-        carritoController.pedido.detallesPedido = document.getElementById('pedido-detalles').value;
-
-        //Validar datos
-        const validacionErrores = carritoController.validacion(carritoController.pedido);
-
-        if (Object.keys(validacionErrores).length > 0) {
-            carritoController.mostrarErrores(validacionErrores);
-      
+        if (document.getElementById("pedido-tipo").value === "Delivery" &&!carritoController.pedido.direccion.trim()) {
+            document.getElementById("error-pedido-direccion").textContent = "Debe ingresar una dirección." || "";
             return;
         }
-    
-        carritoController.limpiarCamposErrores();
+        else {
+            carritoController.limpiarCamposErrores();
+            carritoController.pedido.nombre = document.getElementById('pedido-nombre').value;
+            carritoController.pedido.tipoPedido = document.getElementById('pedido-tipo').value;
+            carritoController.pedido.direccion = document.getElementById('pedido-direccion').value;
+            carritoController.pedido.metodoPago = document.getElementById('pedido-metodo-pago').value;
+            carritoController.pedido.detallesPedido = document.getElementById('pedido-detalles').value;
 
-        if (carritoController.pedido.detallesPedido === '') {
-            carritoController.pedido.detallesPedido = '-';
-        }
-    
-        const productos = carritoService.list();
-    
-        // Mapeo de nombres de categorías
-        const categorias = {
-            "Plato principal": "Hamburguesas",
-            "Acompañante": "Acompañantes",
-            "Bebida": "Bebidas"
-        };
-    
-        // Función para formatear productos por categoría
-        const formatearProductos = (categoriaKey) => {
-            const items = productos
-                .filter(item => item.categoria === categoriaKey)
-                .map(item => `- *${item.nombre}* (x${item.cantidad}) - $${item.precioUnitario}`)
-                .join('\n');
-    
-            return items ? `*${categorias[categoriaKey]}:*\n${items}\n` : '';
-        };
-    
-        const hamburguesas = formatearProductos("Plato principal");
-        const papas = formatearProductos("Acompañante");
-        const bebidas = formatearProductos("Bebida");
-    
-        const precioTotal = productos.reduce((total, item) => total + (item.precioUnitario * item.cantidad), 0);
-    
-        const mensaje = 
-            `*Club de la Hamburguesa - Nuevo Pedido*\n` +
-            `--------------------------------------------\n` +
-            `*Detalles del Pedido*\n` +
-            `- *Tipo de pedido:* ${carritoController.pedido.tipoPedido}\n` +
-            `- *Nombre:* ${carritoController.pedido.nombre}\n` +
-            `- *Dirección:* ${carritoController.pedido.direccion}\n` +
-            `- *Método de pago:* ${carritoController.pedido.metodoPago}\n` +
-            `- *Detalles:* ${carritoController.pedido.detallesPedido}\n` +
-            `--------------------------------------------\n` +
-            `${hamburguesas}${papas}${bebidas}` +
-            `--------------------------------------------\n` +
-            `*Total a Pagar:* $${precioTotal.toFixed(2)}\n` +
-            `--------------------------------------------\n`;
-    
-        const numeroWhatsApp = '5492975488673'; // Reemplaza con el número de WhatsApp del negocio
-        const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-    
-        // Abrir WhatsApp
-        window.open(url, '_blank');
+            //Validar datos
+            const validacionErrores = carritoController.validacion(carritoController.pedido);
 
-        //carritoController.clear();
+            if (Object.keys(validacionErrores).length > 0) {
+                carritoController.mostrarErrores(validacionErrores);
+        
+                return;
+            }
+        
+            carritoController.limpiarCamposErrores();
+
+            if (carritoController.pedido.detallesPedido === '') {
+                carritoController.pedido.detallesPedido = '-';
+            }
+        
+            const productos = carritoService.list();
+        
+            // Mapeo de nombres de categorías
+            const categorias = {
+                "Plato principal": "Hamburguesas",
+                "Acompañante": "Acompañantes",
+                "Bebida": "Bebidas"
+            };
+        
+            // Función para formatear productos por categoría
+            const formatearProductos = (categoriaKey) => {
+                const items = productos
+                    .filter(item => item.categoria === categoriaKey)
+                    .map(item => `- *${item.nombre}* (x${item.cantidad}) - $${item.precioUnitario}`)
+                    .join('\n');
+        
+                return items ? `*${categorias[categoriaKey]}:*\n${items}\n` : '';
+            };
+        
+            const hamburguesas = formatearProductos("Plato principal");
+            const papas = formatearProductos("Acompañante");
+            const bebidas = formatearProductos("Bebida");
+        
+            const precioTotal = productos.reduce((total, item) => total + (item.precioUnitario * item.cantidad), 0);
+        
+            const mensaje = 
+                `*Club de la Hamburguesa - Nuevo Pedido*\n` +
+                `--------------------------------------------\n` +
+                `*Detalles del Pedido*\n` +
+                `- *Tipo de pedido:* ${carritoController.pedido.tipoPedido}\n` +
+                `- *Nombre:* ${carritoController.pedido.nombre}\n` +
+                `- *Dirección:* ${carritoController.pedido.direccion}\n` +
+                `- *Método de pago:* ${carritoController.pedido.metodoPago}\n` +
+                `- *Detalles:* ${carritoController.pedido.detallesPedido}\n` +
+                `--------------------------------------------\n` +
+                `${hamburguesas}${papas}${bebidas}` +
+                `--------------------------------------------\n` +
+                `*Total a Pagar:* $${precioTotal.toFixed(2)}\n` +
+                `--------------------------------------------\n`;
+        
+            const numeroWhatsApp = '5492975488673'; // Reemplaza con el número de WhatsApp del negocio
+            const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+        
+            // Abrir WhatsApp
+            window.open(url, '_blank');
+
+            //carritoController.clear();
+            }
     }
 
 }

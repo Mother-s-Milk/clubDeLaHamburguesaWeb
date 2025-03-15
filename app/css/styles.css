@@ -602,13 +602,15 @@ button,
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: space-between;
     gap: 30px;
-    padding: 15px 30px;
+    padding: 15px 90px 30px;
     background-image: url('../img/web/hero.avif');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    transition: padding .3s ease, gap .3s ease;
 }
 
 .hero::before {
@@ -622,7 +624,9 @@ button,
     background-color: rgba(0, 0, 0, .3);
 }
 
-.hero > div {
+.hero > div,
+.hero > main,
+.hero > footer {
     z-index: 2;
 }
 
@@ -641,69 +645,74 @@ button,
     border-radius: 50%;
 }
 
-.imagenes-hero {
+/*************/
+/*Mas vendida*/
+/*************/
+/* Estilos para la sección destacada de la hamburguesa más vendida */
+.mas-vendida-hero-main {
     display: flex;
+    align-items: center;
     gap: 30px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory; /* Hace que las tarjetas se ajusten en el scroll */
-    padding-bottom: 30px; /* Espaciado para que no corte la sombra del botón*/
     width: 100%;
-    max-width: 1440px;
+    max-width: 900px;
+    border-radius: 30px;
+    padding: 30px;
+    background: rgba(0, 0, 0, .3);
+    backdrop-filter: blur(15px);
+    transition: gap .3s ease, padding .3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
-.imagenes-hero::-webkit-scrollbar {
-    height: 3px; /*Ancho de la barra de desplazamiento*/
-    border-radius: 7.5px;
-}
-  
-.imagenes-hero::-webkit-scrollbar-track {
-    background-color: rgba(255, 255, 255, .3); /*Color de fondo del track*/
-}
-  
-.imagenes-hero::-webkit-scrollbar-thumb {
-    background-color: #000; /*Color del thumb*/
-    border-radius: 7.5px;
-}
-  
-.imagenes-hero::-webkit-scrollbar-thumb:hover {
-    background-color: #333; /*Cambia de color al pasar el mouse*/
-}
-  
-.imagenes-hero::-webkit-scrollbar-button {
-    display: none; /*Esto oculta las flechas de arriba y abajo*/
+.tarjeta-mas-vendida-info {
+    width: calc(60%);
+    max-width: calc(60%);
+    transition: width .3s ease;
 }
 
-.tarjeta-header {
-    position: relative;
-    border: 1px solid #e0e0e0;
+.tarjeta-mas-vendida-info header h1 {
+    font-size: 30px;
+    margin-bottom: 3.75px;
+    color: #fff;
+    font-weight: 600;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    transition: font-size .3s ease;
+}
+
+.tarjeta-mas-vendida-info header h1 span {
+    color: #f85c5c;
+}
+
+.tarjeta-mas-vendida-info p {
+    font-size: 21px;
+    margin-bottom: 15px;
+    color: #fff;
+    font-weight: 400;
+    transition: font-size .3s ease;
+}
+
+.tarjeta-mas-vendida-info button {
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 50px;
+    border: 1px solid #000;
+    color: #fff;
+    background-color: #f85c5c;
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 1);
+    transition: background-color .3s ease, box-shadow .3s ease, padding .3s ease, font-size .3s ease;
+    font-weight: 600;
+}
+
+.tarjeta-mas-vendida-img {
+    width: calc(40%);
+    max-width: calc(40%);
+    transition: width .3s ease;
+}
+
+.tarjeta-mas-vendida-img img {
+    display: block;
+    width: 100%;
     border-radius: 15px;
-    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.05);
-    
-    flex: 0 0 auto; /* Mantiene el tamaño sin contraerse */
-    width: 645px; /* Tamaño fijo para cada tarjeta */
-    max-width: 645px;
-    scroll-snap-align: center;
-}
-
-.tarjeta-header img {
-    width: 75%;
-    display: block;
-    margin: auto;
-}
-
-.tarjeta-header img:last-child {
-    position: absolute;
-    bottom: -9px;
-    left: 50%; /* Centra la imagen horizontalmente */
-    transform: translateX(-50%); /* Ajusta el desplazamiento para lograr el centrado exacto */
-    width: 48%; /* Mantén el tamaño de la imagen */
-    margin: 0; /* Elimina cualquier margen que pueda interferir */
-}
-
-#nombre-americana {
-    display: block;
-    width: 75%;
-    bottom: -15px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, .5);
 }
 
 .botones-hero {
@@ -714,13 +723,13 @@ button,
 
 .botones-hero button {
     color: #fff;
-    padding: 15px 30px;
+    padding: 15px;
     font-size: 18px;
-    font-weight: 500;
+    border-radius: 50px;
     border: 1px solid #000;
-    border-radius: 30px;
     box-shadow: 3px 3px 0px rgba(0, 0, 0, 1);
-    transition: background-color .3s ease, box-shadow .3s ease, padding .3s ease;
+    transition: background-color .3s ease, box-shadow .3s ease, padding .3s ease, font-size .3s ease;
+    font-weight: 600;
 }
 
 .botones-hero button:active {
@@ -732,7 +741,7 @@ button,
 }
 
 .botones-hero button:first-child:hover {
-    background-color: #dc5453; /* Color más oscuro para el hover */
+    background-color: #dc5453;
 }
 
 .botones-hero button:last-child {
@@ -740,7 +749,7 @@ button,
 }
 
 .botones-hero button:last-child:hover {
-    background-color: #dc5453; /* Un tono gris suave para el hover */
+    background-color: #dc5453;
 }
 
 /*****************/
@@ -751,9 +760,8 @@ button,
     align-items: center;
     flex-direction: column;
     gap: 30px;
-
-    padding: 30px 90px;
-    transition: padding .3s ease;
+    padding: 30px 150px;
+    transition: padding .3s ease, gap .3s ease;
 }
 
 .botones-filtros {
@@ -762,25 +770,29 @@ button,
     gap: 30px;
     padding: 30px;
     background-color: #fff;
-    border: 1px solid #f0f0f0;
-    border-radius: 90px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 100px;
+    border: 1px solid rgba(214, 214, 214, .5);
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+    transition: gap .3s ease, padding .3s ease;
 }
 
+.botones-filtros button img {
+    width: 60px;
+    height: 60px;
+    display: block;
+    border-radius: 50%;
+}
 .botones-filtros button {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: #fff;
-    padding: 15px;
+    background-color: #e0e0e0;
+    padding: 3.75px;
     border-radius: 50%;
-    box-shadow: 0px 0px 3px rgba(0, 0, 0, .3);
-}
-
-.botones-filtros button img {
-    width: 36px;
-    height: 36px;
+    border: 1px solid #d6d6d6;
+    font-weight: 400;
+    transition: color .3s ease, background-color .3s ease, box-shadow .3s ease, padding .3s ease, font-size .3s ease;
 }
 
 .botones-filtros button:hover {
@@ -793,6 +805,9 @@ button,
 
 .botones-filtros button.active {
     background-color: #dc5453;
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 0px 1px 6px rgba(0, 0, 0, 0.5);
 }
 
 .grid-menu {
@@ -805,14 +820,13 @@ button,
 }
 
 .tarjeta-menu {
-    border: 1px solid #e0e0e0;
+    border: 1px solid rgba(214, 214, 214, .5);
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
-    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.05);
     padding: 30px;
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 7.5px;
     background-color: #fff;
     transition: padding .3s ease;
 }
@@ -821,6 +835,7 @@ button,
     width: 100%;
     display: block;
     border-radius: 7.5px;
+    margin-bottom: 7.5px;
 }
 
 .info-burger {
@@ -828,28 +843,30 @@ button,
     align-items: center;
     flex-direction: column;
     gap: 3.75px;
+    margin-bottom: 7.5px;
 }
 
 .info-burger p:first-child {
     text-transform: uppercase;
-    font-weight: 500;
-    font-size: 24px;
+    font-weight: 600;
+    font-size: 21px;
+    color: #000;
 }
 
 .info-burger p:last-child {
     color: #f85c5c;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 18px;
 }
 
 .botones-burger {
     display: flex;
     align-items: center;
-    gap: 7.5px;
+    gap: 15px;
 }
 
 .botones-burger button {
-    padding: 3.75px;
+    padding: 7.5px;
     width: 36px;
     height: 36px;
     border-radius: 7.5px;
@@ -1284,143 +1301,548 @@ button,
 /************/
 /*Responsive*/
 /************/
-/*Nuevo*/
-@media screen and (max-width: 1430px) {
+/******/
+/*Hero*/
+/******/
+/*¡NO TOCAR!*/
+@media screen and (max-width: 1070px) {
+    .hero {
+        padding: 15px 75px 30px;
+    }
+    .logo {
+        width: 90px;
+        height: 90px;
+    }
+}
+@media screen and (max-width: 1040px) {
+    .hero {
+        padding: 15px 60px 30px;
+    }
+}
+@media screen and (max-width: 1010px) {
+    .hero {
+        padding: 15px 45px 30px;
+    }
+    .logo {
+        width: 80px;
+        height: 80px;
+    }
+}
+@media screen and (max-width: 980px) {
+    .hero {
+        padding: 15px 30px 30px;
+    }
+}
+@media screen and (max-width: 950px) {
+    .hero {
+        padding: 15px 15px 30px;
+        gap: 15px;
+    }
+    .logo {
+        width: 70px;
+        height: 70px;
+    }
+}
+@media screen and (max-width: 920px) {
+    .mas-vendida-hero-main {
+        gap: 15px;
+        padding: 15px;
+    }
+}
+@media screen and (max-width: 875px) {
+    .tarjeta-mas-vendida-info header h1 {
+        font-size: 27px;
+    }
+    
+    .tarjeta-mas-vendida-info p {
+        font-size: 18px;
+        margin-bottom: 7.5px;
+    }
+    
+    .tarjeta-mas-vendida-info button {
+        font-size: 15px;
+        padding: 9px;
+    }
+    
+    .botones-hero button {
+        padding: 12px;
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 795px) {
+    .tarjeta-mas-vendida-info header h1 {
+        font-size: 24px;
+    }
+    
+    .tarjeta-mas-vendida-info p {
+        font-size: 15px;
+        margin-bottom: 7.5px;
+    }
+    
+    .tarjeta-mas-vendida-info button {
+        font-size: 12px;
+        padding: 9px;
+    }
+    
+    .botones-hero button {
+        padding: 9px;
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 715px) {
+    .tarjeta-mas-vendida-info header h1 {
+        font-size: 21px;
+    }
+}
+@media screen and (max-width: 635px) {
+    .login-cart-nav a span:last-child {
+        display: none;
+    }
+    .tarjeta-mas-vendida-info header h1 {
+        font-size: 18px;
+    }
+    .botones-hero button {
+        padding: 7.5px;
+    }
+}
+@media screen and (max-width: 605px) {
+    .tarjeta-mas-vendida-info p {
+        font-size: 12px;
+        margin-bottom: 7.5px;
+    }
+    
+    .tarjeta-mas-vendida-info button {
+        font-size: 12px;
+        padding: 9px;
+    }
+    
+    .botones-hero button {
+        padding: 9px;
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 555px) {
+    .hero {
+        padding: 15px 90px;
+    }
+    .tarjeta-mas-vendida-info header h1 {
+        font-size: 21px;
+    }
+    .tarjeta-mas-vendida-info p {
+        font-size: 15px;
+    }
+    .mas-vendida-hero-main {
+        flex-direction: column-reverse;
+        gap: 7.5px;
+        border-radius: 15px;
+    }
+    .tarjeta-mas-vendida-info {
+        width: calc(100%);
+        max-width: calc(100%);
+    }
+    .tarjeta-mas-vendida-img {
+        width: calc(60%);
+        max-width: calc(60%);
+    }
+    .tarjeta-mas-vendida-img img {
+        border-radius: 7.5px;
+    }
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+}
+@media screen and (max-width: 546px) {
+    .hero {
+        padding: 15px 75px;
+    }
+}
+@media screen and (max-width: 516px) {
+    .hero {
+        padding: 15px 60px;
+    }
+}
+@media screen and (max-width: 486px) {
+    .hero {
+        padding: 15px 45px;
+    }
+}
+@media screen and (max-width: 456px) {
+    .hero {
+        padding: 15px 30px;
+    }
+}
+@media screen and (max-width: 426px) {
+    .tarjeta-mas-vendida-info header h1 {
+        font-size: 18px;
+    }
+    .tarjeta-mas-vendida-img {
+        width: calc(80%);
+        max-width: calc(80%);
+    }
+}
+@media screen and (max-width: 408px) {
+    .tarjeta-mas-vendida-info p {
+        font-size: 12px;
+    }
+    .tarjeta-mas-vendida-img {
+        width: calc(100%);
+        max-width: calc(100%);
+    }
+}
+@media screen and (max-width: 378px) {
+    .hero {
+        padding: 15px;
+    }
+    .botones-hero {
+        gap: 7.5px;
+    }
+}
+@media screen and (max-width: 348px) {
+    .tarjeta-mas-vendida-info header h1 {
+        font-size: 17px;
+    }
+}
+@media screen and (max-width: 332px) {
+    .tarjeta-mas-vendida-info header h1 {
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 336px) {
+    .hero {
+        height: 100dvh;
+    }
+    .botones-hero button {
+        padding: 7.5px;
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 316px) {
+    .mas-vendida-hero-main {
+        padding: 7.5px;
+    }
+}
+@media screen and (max-width: 277px) {
+    .botones-hero {
+        flex-direction: column;
+    }
+}
+
+/*****************/
+/*****************/
+/*Seccion de menu*/
+/*****************/
+/*****************/
+/**¡NO TOCAR!*/
+@media screen and (max-width: 1434px) {
+    .section-menu {
+        padding: 30px 120px;
+    }
+}
+@media screen and (max-width: 1364px) {
+    .section-menu {
+        padding: 30px 90px;
+    }
+}
+@media screen and (max-width: 1304px) {
     .section-menu {
         padding: 30px 75px;
     }
 }
-@media screen and (max-width: 1425px) {
-    .tarjeta-header {
-        width: 630px;
-        max-width: 630px;
-    }
-}
-@media screen and (max-width: 1405px) {
-    .tarjeta-header {
-        width: 600px;
-        max-width: 600px;
-    }
-}
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1274px) {
     .section-menu {
         padding: 30px 60px;
     }
 }
-@media screen and (max-width: 1370px) {
+@media screen and (max-width: 1244px) {
     .section-menu {
         padding: 30px 45px;
     }
 }
-@media screen and (max-width: 1340px) {
+@media screen and (max-width: 1214px) {
     .section-menu {
-        padding: 30px 30px;
+        padding: 30px;
     }
 }
-@media screen and (max-width: 1335px) {
-    .tarjeta-header {
-        width: 570px;
-        max-width: 570px;
+@media screen and (max-width: 1184px) {
+    .botones-filtros button img {
+        width: 50px;
+        height: 50px;
     }
-}
-@media screen and (max-width: 1310px) {
     .info-burger p:first-child {
-        font-size: 21px;
+        font-size: 18px;
+    }
+    
+    .info-burger p:last-child {
+        font-size: 16px;
+    }
+    
+    .botones-burger {
+        gap: 12px;
     }
     
     .botones-burger button {
         width: 33px;
         height: 33px;
+        font-size: 16px;
     }
 }
-@media screen and (max-width: 1275px) {
-    .tarjeta-header {
-        width: 540px;
-        max-width: 540px;
-    }
-}
-@media screen and (max-width: 1215px) {
-    .tarjeta-header {
-        width: 510px;
-        max-width: 510px;
-    }
-}
-@media screen and (max-width: 1182px) {
-    .grid-menu {
-        gap: 15px;
-    }
-}
-@media screen and (max-width: 1155px) {
-    .tarjeta-header {
-        width: 480px;
-        max-width: 480px;
-    }
-}
-@media screen and (max-width: 1152px) {
-    .section-menu {
+@media screen and (max-width: 1058px) {
+    .tarjeta-menu {
         padding: 15px;
-        gap: 15px;
     }
     .botones-filtros {
         gap: 15px;
         padding: 15px;
     }
 }
-@media screen and (max-width: 1122px) {
+@media screen and (max-width: 968px) {
+    .grid-menu {
+        gap: 15px;
+    }
+    .section-menu {
+        gap: 15px;
+    }
+    .paginador {
+        margin-top: 15px;
+    }
+}
+@media screen and (max-width: 938px) {
+    .section-menu {
+        padding: 15px;
+    }
+    .paginador {
+        margin-top: 7.5px;
+    }
+}
+@media screen and (max-width: 908px) {
+    .botones-filtros button img {
+        width: 40px;
+        height: 40px;
+    }
     .info-burger p:first-child {
-        font-size: 18px;
+        font-size: 16px;
     }
     .info-burger p:last-child {
-        color: #f85c5c;
-        font-weight: 600;
+        font-size: 15px;
+    }
+    
+    .botones-burger {
+        gap: 9px;
+    }
+    
+    .botones-burger button {
+        width: 30px;
+        height: 30px;
         font-size: 15px;
     }
 }
-@media screen and (max-width: 1095px) {
-    .tarjeta-header {
-        width: 450px;
-        max-width: 450px;
+@media screen and (max-width: 824px) {
+    .info-burger p:first-child {
+        font-size: 15px;
+    }
+    .info-burger p:last-child {
+        font-size: 15px;
+    }
+    .botones-burger {
+        gap: 9px;
+    }
+    .botones-burger button {
+        width: 30px;
+        height: 30px;
+        font-size: 15px;
     }
 }
-@media screen and (max-width: 1035px) {
-    .tarjeta-header {
-        width: 420px;
-        max-width: 420px;
+@media screen and (max-width: 783px) {
+    .info-burger p:first-child {
+        font-size: 14px;
+    }
+    .info-burger p:last-child {
+        font-size: 15px;
+    }
+    .botones-burger {
+        gap: 7.5px;
+    }
+    .botones-burger button {
+        width: 27px;
+        height: 27px;
+        font-size: 14px;
     }
 }
-@media screen and (max-width: 997px) {
+@media screen and (max-width: 741px) {
     .section-menu {
         padding: 30px 90px;
-        gap: 30px;
     }
     .grid-menu {
         grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
     }
     .info-burger p:first-child {
-        font-size: 21px;
+        font-size: 16px;
     }
+    
+    .info-burger p:last-child {
+        font-size: 15px;
+    }
+    
     .botones-burger button {
-        width: 36px;
-        height: 36px;
-    }
-    
-    .paginador button {
-        width: 33px;
-        height: 33px;
-        font-size: 17px;
-    }
-    
-    .paginador span {
-        font-size: 17px;
+        width: 30px;
+        height: 30px;
+        border-radius: 7.5px;
+        font-size: 16px;
     }
 }
-@media screen and (max-width: 975px) {
-    .tarjeta-header {
-        width: 390px;
-        max-width: 390px;
+@media screen and (max-width: 704px) {
+    .section-menu {
+        padding: 30px 75px;
     }
 }
+@media screen and (max-width: 674px) {
+    .section-menu {
+        padding: 30px 60px;
+    }
+}
+@media screen and (max-width: 644px) {
+    .section-menu {
+        padding: 30px 45px;
+    }
+}
+@media screen and (max-width: 614px) {
+    .section-menu {
+        padding: 30px;
+    }
+}
+@media screen and (max-width: 584px) {
+    .section-menu {
+        padding: 15px;
+    }
+}
+@media screen and (max-width: 554px) {
+    .info-burger p:first-child {
+        font-size: 15px;
+    }
+    
+    .info-burger p:last-child {
+        font-size: 15px;
+    }
+    
+    .botones-burger button {
+        width: 27px;
+        height: 27px;
+        border-radius: 7.5px;
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 527px) {
+    .info-burger p:first-child {
+        font-size: 14px;
+    }
+    
+    .info-burger p:last-child {
+        font-size: 14px;
+    }
+    
+    .botones-burger button {
+        width: 27px;
+        height: 27px;
+        border-radius: 7.5px;
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 499px) {
+    .info-burger p:first-child {
+        font-size: 13px;
+    }
+}
+@media screen and (max-width: 471px) {
+    .botones-filtros {
+        gap: 7.5px;
+        padding: 7.5px;
+    }
+    .tarjeta-menu {
+        padding: 7.5px;
+        border-radius: 7.5px;
+    }
+    .tarjeta-menu img {
+        border-radius: 3.75px;
+    }
+}
+@media screen and (max-width: 441px) {
+    .section-menu {
+        padding: 30px 90px;
+    }
+    .grid-menu {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .info-burger p:first-child {
+        font-size: 16px;
+    }
+    
+    .info-burger p:last-child {
+        font-size: 15px;
+    }
+    
+    .botones-burger button {
+        width: 30px;
+        height: 30px;
+        border-radius: 7.5px;
+        font-size: 16px;
+    }
+    .tarjeta-menu {
+        padding: 15px;
+        border-radius: 15px;
+    }
+    .tarjeta-menu img {
+        border-radius: 7.5px;
+    }
+}
+@media screen and (max-width: 434px) {
+    .section-menu {
+        padding: 30px 75px;
+    }
+}
+@media screen and (max-width: 404px) {
+    .section-menu {
+        padding: 30px 60px;
+    }
+}
+@media screen and (max-width: 374px) {
+    .section-menu {
+        padding: 30px 45px;
+    }
+}
+@media screen and (max-width: 344px) {
+    .section-menu {
+        padding: 30px;
+    }
+}
+@media screen and (max-width: 314px) {
+    .section-menu {
+        padding: 15px;
+    }
+}
+@media screen and (max-width: 284px) {
+    .botones-filtros button img {
+        width: 30px;
+        height: 30px;
+    }
+    .info-burger p:first-child {
+        font-size: 15px;
+    }
+    .tarjeta-menu {
+        padding: 7.5px;
+        border-radius: 7.5px;
+    }
+    .tarjeta-menu img {
+        border-radius: 3.75px;
+    }
+}
+
+
+/***************/
+/***************/
+/*Resto estilos*/
+/***************/
+/***************/
 @media screen and (max-width: 960px) {
     .section {
         padding: 30px 75px;
@@ -1441,26 +1863,8 @@ button,
         max-height: 360px;
     }
 }
-@media screen and (max-width: 918px) {
-    .section-menu {
-        padding: 30px 75px;
-    }
-}
-@media screen and (max-width: 915px) {
-    .tarjeta-header {
-        width: 360px;
-        max-width: 360px;
-    }
-}
-@media screen and (max-width: 900px) {
-    .logo {
-        width: 90px;
-        height: 90px;
-    }
 
-    .botones-hero button {
-        padding: 12px 24px;
-    }
+@media screen and (max-width: 900px) {
     .section {
         padding: 30px 45px;
     }
@@ -1468,11 +1872,6 @@ button,
     .map-container iframe {
         height: 330px;
         max-height: 330px;
-    }
-}
-@media screen and (max-width: 888px) {
-    .section-menu {
-        padding: 30px 60px;
     }
 }
 @media screen and (max-width: 870px) {
@@ -1485,25 +1884,9 @@ button,
         max-height: 300px;
     }
 }
-@media screen and (max-width: 858px) {
-    .section-menu {
-        padding: 30px 45px;
-    }
-}
-@media screen and (max-width: 855px) {
-    .tarjeta-header {
-        width: 330px;
-        max-width: 330px;
-    }
-}
 @media screen and (max-width: 840px) {
     .servicios-main {
         gap: 15px;
-    }
-}
-@media screen and (max-width: 828px) {
-    .section-menu {
-        padding: 30px;
     }
 }
 @media screen and (max-width: 810px) {
@@ -1516,57 +1899,6 @@ button,
     .servicios-main > div {
         width: 210px;
         max-width: 210px;
-    }
-}
-@media screen and (max-width: 798px) {
-    .grid-menu {
-        gap: 15px;
-    }
-}
-@media screen and (max-width: 795px) {
-    .tarjeta-header {
-        width: 300px;
-        max-width: 300px;
-    }
-}
-@media screen and (max-width: 783px) {
-    .section-menu {
-        padding: 15px;
-        gap: 15px;
-    }
-    .botones-filtros button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        background-color: #fff;
-        padding: 7.5px;
-        border-radius: 50%;
-        box-shadow: 0px 0px 3px rgba(0, 0, 0, .3);
-    }
-    
-    .botones-filtros button img {
-        width: 33px;
-        height: 33px;
-    }
-}
-@media screen and (max-width: 753px) {
-    .info-burger p:first-child {
-        font-size: 18px;
-    }
-}
-@media screen and (max-width: 750px) {
-    .login-cart-nav a span:last-child {
-        display: none;
-    }
-
-    .logo {
-        width: 81px;
-        height: 81px;
-    }
-
-    .botones-hero button {
-        padding: 9px 18px;
     }
 }
 @media screen and (max-width: 720px) {
@@ -1593,15 +1925,6 @@ button,
        max-width: calc(36% - 15px);
     }
 }
-@media screen and (max-width: 669px) {
-    .tarjeta-menu {
-        padding: 15px;
-    }
-    .botones-filtros button img {
-        width: 30px;
-        height: 30px;
-    }
-}
 @media screen and (max-width: 660px) {
     .tarjeta-oferta {
         width: 570px;
@@ -1617,24 +1940,6 @@ button,
     }
 }
 @media screen and (max-width: 609px) {
-    .section-menu {
-        padding: 30px 90px;
-        gap: 30px;
-    }
-    .grid-menu {
-        grid-template-columns: repeat(1, 1fr);
-        gap: 30px;
-    }
-    .tarjeta-menu {
-        padding: 30px;
-    }
-    .info-burger p:first-child {
-        font-size: 24px;
-    }
-    .botones-burger button {
-        width: 36px;
-        height: 36px;
-    }
     .tarjeta-oferta {
         flex-direction: column-reverse;
         width: 420px;
@@ -1660,16 +1965,6 @@ button,
         max-width: calc(42% - 15px);
     }
 }
-@media screen and (max-width: 575px) {
-    .section-menu {
-        padding: 30px 75px;
-    }
-}
-@media screen and (max-width: 545px) {
-    .section-menu {
-        padding: 30px 60px;
-    }
-}
 @media screen and (max-width: 544px) {
     .servicios-main > div {
         width: calc(50% - 15px);
@@ -1682,11 +1977,6 @@ button,
         max-width: calc(45% - 15px);
     }
 }
-@media screen and (max-width: 515px) {
-    .section-menu {
-        padding: 30px 45px;
-    }
-}
 @media screen and (max-width: 510px) {
     .servicios-main > div {
         width: calc(48% - 15px);
@@ -1694,9 +1984,6 @@ button,
     }
 }
 @media screen and (max-width: 485px) {
-    .section-menu {
-        padding: 30px;
-    }
     .header-section h2 {
         font-size: 27px;
     }
@@ -1723,13 +2010,6 @@ button,
     }
 }
 @media screen and (max-width: 455px) {
-    .section-menu {
-        padding: 15px;
-        gap: 15px;
-    }
-    .grid-menu {
-        gap: 15px;
-    }
     .header-section h2 {
         font-size: 24px;
     }
@@ -1746,11 +2026,6 @@ button,
     .servicios-main > div {
         width: calc(60%);
        max-width: calc(60%);
-    }
-}
-@media screen and (max-width: 425px) {
-    .info-burger p:first-child {
-        font-size: 21px;
     }
 }
 @media screen and (max-width: 420px) {
@@ -1771,10 +2046,6 @@ button,
     }
 }
 @media screen and (max-width: 413px) {
-    .info-producto p:first-child {
-        font-size: 15px;
-    }
-
     .botones-producto-carrito button {
         width: 21px;
         height: 21px;
@@ -1800,51 +2071,10 @@ button,
         font-size: 15px;
     }
 }
-@media screen and (max-width: 412px) {
-    .login-cart-nav {
-        gap: 7.5px;
-    }
-
-    .logo {
-        width: 75px;
-        height: 75px;
-    }
-}
-@media screen and (max-width: 405px) {
-    .tarjeta-header img {
-        width: 100%;
-        display: block;
-        margin: auto;
-    }
-    .tarjeta-header {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .tarjeta-header img:last-child {
-        position: absolute;
-        bottom: -12px;
-        left: 50%; /* Centra la imagen horizontalmente */
-        transform: translateX(-50%); /* Ajusta el desplazamiento para lograr el centrado exacto */
-        width: 60%; /* Mantén el tamaño de la imagen */
-        margin: 0; /* Elimina cualquier margen que pueda interferir */
-    }
-    
-    #nombre-americana {
-        display: block;
-        width: 100%;
-        bottom: -15px;
-    }
-}
 @media screen and (max-width: 396px) {
     .servicios-main > div {
         width: calc(66%);
-       max-width: calc(66%);
-    }
-}
-@media screen and (max-width: 394px) {
-    .botones-hero button {
-        padding: 7.5px;
+        max-width: calc(66%);
     }
 }
 @media screen and (max-width: 390px) {
@@ -1854,16 +2084,6 @@ button,
         padding-bottom: 27px;
     }
     .info-oferta > div span p {
-        font-size: 15px;
-    }
-}
-@media screen and (max-width: 385px) {
-    .info-burger p:first-child {
-        font-size: 18px;
-    }
-}
-@media screen and (max-width: 382px) {
-    .botones-hero button {
         font-size: 15px;
     }
 }
@@ -1896,21 +2116,12 @@ button,
     }
 }
 @media screen and (max-width: 345px) {
-    .info-burger p:first-child {
-        font-size: 15px;
-    }
     .tarjeta-carrito > div {
         gap: 3.75px;
     }
     .tarjeta-carrito img {
         width: 60px;
     }
-    /*.info-producto p:first-child {
-        font-size: 12px;
-    }
-    .info-producto p:last-child {
-        font-size: 12px;
-    }*/
     .botones-producto-carrito button {
         width: 18px;
         height: 18px;
@@ -1921,9 +2132,6 @@ button,
     }
 }
 @media screen and (max-width: 343px) {
-    .tarjeta-menu {
-        padding: 15px;
-    }
     .paginador button {
         width: 30px;
         height: 30px;
@@ -1934,17 +2142,11 @@ button,
         font-size: 16px;
     }
 }
-@media screen and (max-width: 341px) {
-    .logo {
-        width: 60px;
-        height: 60px;
-    }
-    .botones-hero {
-        flex-direction: column;
-    }
-    .botones-filtros button img {
-        width: 27px;
-        height: 27px;
+
+@media screen and (max-width: 337px) {
+    .servicios-main > div {
+        width: calc(81%);
+        max-width: calc(81%);
     }
 }
 @media screen and (max-width: 330px) {
@@ -1967,21 +2169,10 @@ button,
         bottom: -21px;
     }
 }
-@media screen and (max-width: 337px) {
-    .servicios-main > div {
-        width: calc(81%);
-        max-width: calc(81%);
-    }
-}
 @media screen and (max-width: 315px) {
     .servicios-main > div {
         width: calc(87%);
-        max-width: calc(87%);
-    }
-}
-@media screen and (max-width: 312px) {
-    .info-burger p:first-child {
-        font-size: 15px;
+       max-width: calc(87%);
     }
 }
 @media screen and (max-width: 300px) {
@@ -2041,19 +2232,8 @@ button,
         color: #fff;
         font-size: 12px;
     }
-    .botones-filtros {
-        gap: 7.5px;
-        padding: 7.5px;
-    }
-    .botones-filtros button img {
-        width: 24px;
-        height: 24px;
-    }
 }
 @media screen and (max-width: 270px) {
-    /**********************/
-    /*Seccion de servicios*/
-    /**********************/
     .servicios-main > div {
         width: calc(100%);
        max-width: calc(100%);
@@ -2067,9 +2247,6 @@ button,
         padding: 9px 21px;
         bottom: -18px;
     }
-    /*.tarjeta-oferta {
-        padding-bottom: 21px;
-    }*/
 }
 
 @media screen and (max-width: 260px) {
@@ -2085,9 +2262,6 @@ button,
         padding: 7.5px 15px;
         bottom: -15px;
     }
-    /*.tarjeta-oferta {
-        padding-bottom: 21px;
-    }*/
 }
 @media screen and (max-width: 245px) {
     .servicios-main > div {
@@ -2113,11 +2287,6 @@ button,
         width: 75%;
         padding: 7.5px 15px;
         bottom: -15px;
-    }
-}
-@media screen and (max-width: 219px) {
-    .botones-hero button {
-        font-size: 12px;
     }
 }
 @media screen and (max-width: 209px) {
@@ -2165,82 +2334,5 @@ button,
     .tarjeta-oferta button {
         width: 90%;
         font-size: 12px;
-    }
-}
-
-/*Desde aca estaba*/
-/**/
-/*
-
-
-
-
-@media screen and (max-width: 645px) {
-    .tarjeta-oferta {
-        width: 510px;
-    }
-
-    .carrito-container {
-        width: 360px;
-        max-width: 360px;
-    }
-}
-
-@media screen and (max-width: 595px) {
-    .tarjeta-oferta {
-        width: 450px;
-    }
-}
-
-@media screen and (max-width: 555px) {
-    .tarjeta-oferta {
-        width: 420px;
-    }
-}
-
-@media screen and (max-width: 535px) {
-    .tarjeta-oferta {
-        width: 390px;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-@media screen and (max-width: 320px) {
-    .info-burger p:first-child {
-        text-transform: uppercase;
-        font-weight: 600;
-        font-size: 18px;
-    }
-    
-    .info-burger p:last-child {
-        font-size: 15px;
-    }
-    
-    .botones-burger button {
-        width: 33px;
-        height: 33px;
-        font-size: 15px;
-    }
-}
-
-@media screen and (max-width: 283px) {
-    .botones-filtros button img {
-        width: 24px;
-        height: 24px;
-    }
-}
-
-@media screen and (max-width: 243px) {
-    .botones-filtros button img {
-        width: 21px;
-        height: 21px;
     }
 }

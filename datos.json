@@ -409,5 +409,13 @@
             "stockActual": 13,
             "stockMinimo": 4
         }
-    ]
+    ],
+    "masVendida":
+        {
+            "id": 1,
+            "nombre": "Cheese Simple",
+            "categoria": "Plato principal",
+            "precioUnitario": 8000,
+            "urlImagen": "app/img/comidas/cheese.jpg"
+        }
 }

@@ -3,14 +3,71 @@ const controller = {
     papas: [],
     bebidas: [],
     currentCategoria: "comidas",
+    masVendida: {
+        id: 0,
+        nombre: '',
+        categoria: '',
+        precioUnitario: 0,
+        urlImagen: '',
+        cantidad: 1
+    },
+    consultarHamburguesaMasVendida: () => {
+        service.consultarHamburguesaMasVendida()
+            .then(response => {
+                controller.masVendida.id = response.id;
+                controller.masVendida.nombre = response.nombre;
+                controller.masVendida.categoria = response.categoria;
+                controller.masVendida.precioUnitario = response.precioUnitario;
+                controller.masVendida.urlImagen = response.urlImagen;
+                controller.renderMasVendida(controller.masVendida);
+        });
+    },
+    renderMasVendida: (masVendida) => {
+        let masVendidaHeroMain = document.getElementById('mas-vendida-hero-main');
+
+        if (!masVendida) {
+            alert('Mas vendida vacio');
+            return;
+        }
+        masVendidaHeroMain.innerHTML = '';
+
+        let masVendidaTarjeta = `
+            <div class="tarjeta-mas-vendida-info">
+                <header>
+                    <h1>Te presentamos a la más pedida del Club: la <span class="nombre-mas-pedida">Cuarto de libra simple</span></h1>
+                </header>
+                <main>
+                    <p>${masVendida.descripcion || "¡Una fiesta de sabores! ¡No te la podés perder!"}</p>
+                </main>
+                <footer>
+                    <button type="button" class="btn-mas-pedida" data-categoria="Plato principal">Añadir al carrito</button>
+                </footer>
+            </div>
+            <div class="tarjeta-mas-vendida-img">
+                <img src="${masVendida.urlImagen}" alt="Imagen de ${masVendida.nombre}">
+            </div>
+        `;
+        masVendidaHeroMain.insertAdjacentHTML("beforeend", masVendidaTarjeta);
+        let botonMasVendida = document.querySelector(".btn-mas-pedida");
+
+        botonMasVendida.addEventListener("click", (event) => {
+            let productoId = masVendida.id;
+            let productoNombre = masVendida.nombre;
+            let productoCategoria = event.target.dataset.categoria;
+            let productoPrecioUnitario = masVendida.precioUnitario;
+            let productoUrlImagen = masVendida.urlImagen;
+            
+            carritoController.save(productoId, productoNombre, productoCategoria, productoPrecioUnitario, productoUrlImagen);
+        });
+    },
     solicitarProductos: () => {
         controller.consultarPlatosPrincipales();
     },
     consultarPlatosPrincipales: () => {
         service.consultarPlatosPrincipales()
             .then(response => {
+                console.log(response);
                 controller.comidas = response;
-                console.log(controller.comidas)
                 controller.consultarPapas();
         });
     },
@@ -30,7 +87,6 @@ const controller = {
     },
     imprimirProductos: (productos) => {
         let maxItems = window.innerWidth <= 997 ? 4 : 6;
-        /*let maxItems = 6;*/ // Máximo de elementos por página
         let currentPage = 1; // Página actual
         let paginador = document.getElementById('paginador');
         let gridMenu = document.getElementById('grid-menu');
@@ -60,10 +116,11 @@ const controller = {
                             aria-label="Agregar ${producto.nombre} al carrito">
                             <i class="fa-solid fa-plus"></i>
                         </button>
-                        <button type="button"><i class="fa-solid fa-eye"></i></button>
+                        <button type="button"><i class="fa-solid fa-eye"></i></button> 
                     </div>
                 </div>
             `).join('');
+
             gridMenu.innerHTML = contenidoHTML;
 
             paginador.innerHTML = `
@@ -119,6 +176,8 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleButton.addEventListener("click", () => {
         navbar.classList.toggle('collapsed');
     });
+
+    controller.consultarHamburguesaMasVendida();
     
     controller.solicitarProductos();
     

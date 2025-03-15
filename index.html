@@ -34,335 +34,294 @@
 <body>
     <aside class="carrito-container">
         <header id="carrito-header" class="carrito-header">
-            <button type="button" class="btn-cerrar-carrito"><i class="fa-solid fa-arrow-left"></i></button>
-            <h1>Mi Carrito</h1>
-        </header>
-                
-        <main id="carrito-main" class="carrito-main">
-            <section id="carrito-section-productos" class="carrito-section-productos">
-                <div class="carrito-container-categoria">
-                    <header>
-                        <hr><h1>Platos principales</h1><hr>
-                    </header>
-                    <main id="platos-principales-carrito">
-                        <h2 class="mensaje-categoria-carro">No hay platos principales cargados</h2>
-                    </main>
-                </div>
-                <div class="carrito-container-categoria">
-                    <header>
-                        <hr><h1>Acompañantes</h1><hr>
-                    </header>
-                    <main id="acompañantes-carrito">
-                        <h2 class="mensaje-categoria-carro">No hay acompañantes cargados</h2>
-                    </main>
-                </div>
-                <div class="carrito-container-categoria">
-                    <header>
-                        <hr><h1>Bebidas</h1><hr>
-                    </header>
-                    <main id="bebidas-carrito">
-                        <h2 class="mensaje-categoria-carro">No hay bebidas cargadas</h2>
-                    </main>
-                </div>
-            </section>
+    <button type="button" class="btn-cerrar-carrito"><i class="fa-solid fa-arrow-left"></i></button>
+    <h1>Mi Carrito</h1>
+</header>
         
-            <!-- Formulario de envío oculto inicialmente -->
-            <section id="carrito-formulario-section" class="carrito-formulario-section hidden">
-                <header>
-                    <h2>Completa los campos y envianos tu pedido</h2>
-                </header>
-                <main>
-                    <form class="formulario-carrito">
-                        <div>
-                            <input type="text" placeholder="Nombre" id="pedido-nombre" name="pedido-nombre" required>
-                            <span id="error-pedido-nombre" class="error"></span>
-                        </div>
-                        <div>
-                            <select name="pedido-tipo" id="pedido-tipo" required>
-                                <option value="" disabled selected hidden>Seleccione un tipo de pedido...</option>
-                                <option value="Retiro">Retiro</option>
-                                <option value="Delivery">Delivery</option>
-                            </select>
-                            <span id="error-pedido-tipo" class="error"></span>
-                        </div>
-                        <div>
-                            <input type="text" placeholder="Dirección" id="pedido-direccion">
-                            <span id="error-pedido-direccion" class="error"></span>
-                        </div>
-                        <div>
-                            <select name="pedido-metodo-pago" id="pedido-metodo-pago" required>
-                                <option value="" disabled selected hidden>Seleccione un método de pago...</option>
-                                <option value="Credito">Crédito</option>
-                                <option value="Debito">Débito</option>
-                                <option value="Efectivo">Efectivo</option>
-                                <option value="Transferencia">Transferencia</option>
-                            </select>
-                            <span id="error-pedido-metodo-pago" class="error"></span>
-                        </div>
-                        <div>
-                            <textarea name="pedido-detalles" id="pedido-detalles" placeholder="Detalles adicionales"></textarea>
-                        </div>
-                    </form>
-                </main>
-            </section>
+<main id="carrito-main" class="carrito-main">
+    <section id="carrito-section-productos" class="carrito-section-productos">
+        <div class="carrito-container-categoria">
+            <header>
+                <hr><h1>Platos principales</h1><hr>
+            </header>
+            <main id="platos-principales-carrito">
+                <h2 class="mensaje-categoria-carro">No hay platos principales cargados</h2>
+            </main>
+        </div>
+        <div class="carrito-container-categoria">
+            <header>
+                <hr><h1>Acompañantes</h1><hr>
+            </header>
+            <main id="acompañantes-carrito">
+                <h2 class="mensaje-categoria-carro">No hay acompañantes cargados</h2>
+            </main>
+        </div>
+        <div class="carrito-container-categoria">
+            <header>
+                <hr><h1>Bebidas</h1><hr>
+            </header>
+            <main id="bebidas-carrito">
+                <h2 class="mensaje-categoria-carro">No hay bebidas cargadas</h2>
+            </main>
+        </div>
+    </section>
+
+    <!-- Formulario de envío oculto inicialmente -->
+    <section id="carrito-formulario-section" class="carrito-formulario-section hidden">
+        <header>
+            <h2>Completa los campos y envianos tu pedido</h2>
+        </header>
+        <main>
+            <form class="formulario-carrito">
+                <div>
+                    <input type="text" placeholder="Nombre" id="pedido-nombre" name="pedido-nombre" required>
+                    <span id="error-pedido-nombre" class="error"></span>
+                </div>
+                <div>
+                    <select name="pedido-tipo" id="pedido-tipo" required>
+                        <option value="" disabled selected hidden>Seleccione un tipo de pedido...</option>
+                        <option value="Retiro">Retiro</option>
+                        <option value="Delivery">Delivery</option>
+                    </select>
+                    <span id="error-pedido-tipo" class="error"></span>
+                </div>
+                <div>
+                    <input type="text" placeholder="Dirección" id="pedido-direccion">
+                    <span id="error-pedido-direccion" class="error"></span>
+                </div>
+                <div>
+                    <select name="pedido-metodo-pago" id="pedido-metodo-pago" required>
+                        <option value="" disabled selected hidden>Seleccione un método de pago...</option>
+                        <option value="Credito">Crédito</option>
+                        <option value="Debito">Débito</option>
+                        <option value="Efectivo">Efectivo</option>
+                        <option value="Transferencia">Transferencia</option>
+                    </select>
+                    <span id="error-pedido-metodo-pago" class="error"></span>
+                </div>
+                <div>
+                    <textarea name="pedido-detalles" id="pedido-detalles" placeholder="Detalles adicionales"></textarea>
+                </div>
+            </form>
         </main>
-                
-        <footer id="carrito-footer" class="carrito-footer hidden">
-            <p>Delivery: <span id="total-delivery">$0</span></p>
-            <p>Subtotal: <span id="total-productos"></span></p>
-            <hr>
-            <p>Total: <span id="total-carrito"></span></p>
-            <hr>
-            <div class="footer-carrito-botones">
-                <div id="botones-productos" class="botones-productos">
-                    <button type="button" id="btn-confirmar-pedido">Realizar pedido</button>
-                    <button type="button" class="btn-cerrar-carrito">Cerrar</button>
-                </div>
-                <div id="botones-formulario" class="botones-formulario hidden">
-                    <button type="button" id="btn-enviar-pedido">Enviar</button>
-                    <button type="button" id="btn-volver">Volver</button>
-                </div>
-            </div>
-        </footer>
+    </section>
+</main>
+        
+<footer id="carrito-footer" class="carrito-footer hidden">
+    <p>Delivery: <span id="total-delivery">$0</span></p>
+    <p>Subtotal: <span id="total-productos"></span></p>
+    <hr>
+    <p>Total: <span id="total-carrito"></span></p>
+    <hr>
+    <div class="footer-carrito-botones">
+        <div id="botones-productos" class="botones-productos">
+            <button type="button" id="btn-confirmar-pedido">Realizar pedido</button>
+            <button type="button" class="btn-cerrar-carrito">Cerrar</button>
+        </div>
+        <div id="botones-formulario" class="botones-formulario hidden">
+            <button type="button" id="btn-enviar-pedido">Enviar</button>
+            <button type="button" id="btn-volver">Volver</button>
+        </div>
+    </div>
+</footer>
     </aside>
 
     <header class="header">
         <div class="navigation-container container">
-            <button type="button" id="toggle-button" class="btn-scrolleable">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        
-            <nav class="login-cart-nav">
-                <a href="#" id="login-button" class="a-button btn-scrolleable" aria-label="Ir a mi cuenta">
-                    <i class="fa-solid fa-user"></i>
-                    <span>Mi cuenta</span>
-                </a>
-                <a id="cart-button" class="a-button btn-scrolleable" aria-label="Ir a mi carrito">
-                    <span>
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <span id="cart-count">0</span>
-                    </span>
-                    <span>Carrito</span>
-                </a>
-            </nav>
-        </div>
+    <button type="button" id="toggle-button" class="btn-scrolleable">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <nav class="login-cart-nav">
+        <a href="authentication" id="login-button" class="a-button btn-scrolleable" aria-label="Ir a mi cuenta">
+            <i class="fa-solid fa-user"></i>
+            <span>Mi cuenta</span>
+        </a>
+        <a id="cart-button" class="a-button btn-scrolleable" aria-label="Ir a mi carrito">
+            <span>
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-count">0</span>
+            </span>
+            <span>Carrito</span>
+        </a>
+    </nav>
+</div>
     </header>
 
     <nav class="sidebar">
         <ul class="lista-navegacion">
-            <li><a href="#"><i class="fa-solid fa-house"></i>Inicio</a></li>
-            <li><a href="#section-menu"><i class="fa-solid fa-burger"></i>Menú</a></li>
-            <li><a href="#section-contacto"><i class="fa-solid fa-address-book"></i>Contacto</a></li>
-        </ul>
+    <li><a href="#"><i class="fa-solid fa-house"></i>Inicio</a></li>
+    <li><a href="#section-menu"><i class="fa-solid fa-burger"></i>Menú</a></li>
+    <li><a href="#section-contacto"><i class="fa-solid fa-address-book"></i>Contacto</a></li>
+</ul>
     </nav>
 
     <main>
         <section class="hero container">
-            <div class="logo">
-                <img src="app/img/web/logo.png" alt="">
-            </div>
-        
-            <div class="imagenes-hero container">
-                <div class="tarjeta-header">
-                    <img src="app/img/web/hero-img1.webp" alt="">
-                    <img id="nombre-americana" src="app/img/web/americana-nombre.png" alt="">
-                </div>
-                <div class="tarjeta-header">
-                    <img src="app/img/web/hero-img1.webp" alt="">
-                    <img src="app/img/web/bacon-nombre.png" alt="">
-                </div>
-                <div class="tarjeta-header">
-                    <img src="app/img/web/hero-img1.webp" alt="">
-                    <img src="app/img/web/cheese-nombre.png" alt="">
-                </div>
-            </div>
-        
-            <div class="botones-hero">
-                <button type="button" id="btn-ordenar-ahora">Ordenar ahora</button>
-                <button type="button" id="btn-ver-menu">Ver menú</button>
-            </div>
-        </section>
-        
-        <section class="container section-menu" id="section-menu">
-            <div class="botones-filtros">
-                <button type="button" class="active" id="btn-comidas-filtro">
-                    <img src="app/img/web/hamburguesa-icono.png" alt="">
-                </button>
-                <button type="button" id="btn-papas-filtro">
-                    <img src="app/img/web/papas-icono.png" alt="">
-                </button>
-                <button type="button" id="btn-bebidas-filtro">
-                    <img src="app/img/web/lata-icono.png" alt="">
-                </button>
-            </div>
-        
-            <div class="grid-menu" id="grid-menu">
-            </div>
-        
-            <div class="paginador" id="paginador">
-            </div>
-        </section>
-        
-        <section class="container section ofertas-especiales">
-            <header class="header-section">
-                <h2>Ofertas especiales</h2>
-                <hr>
-            </header>
-            <main class="ofertas-especiales-main">
-                <div class="tarjeta-oferta">
-                    <div class="info-oferta">
-                        <h3>Doble Smash Combo</h3>
-                        <div>
-                            <span>
-                                <i class="fa-solid fa-burger"></i>
-                                <p>2x Medallones de carne 100% Angus</p>
-                            </span>
-                            <span>
-                                <i class="fa-solid fa-bottle-droplet"></i>
-                                <p>Gaseosa 1.5lts</p>
-                            </span>
-                        </div>
-                        <p><strong>Total: $24500</strong></p>
-                    </div>
-                    <div>
-                        <img src="app/img/web/hero-img1.webp" alt="">
-                    </div>
-                    <button type="button">Pedir ahora</button>
-                </div>
-                <div class="tarjeta-oferta">
-                    <div class="info-oferta">
-                        <h3>Doble Smash Combo</h3>
-                        <div>
-                            <span>
-                                <i class="fa-solid fa-burger"></i>
-                                <p>2x Medallones de carne 100% Angus</p>
-                            </span>
-                            <span>
-                                <i class="fa-solid fa-bottle-droplet"></i>
-                                <p>Gaseosa 1.5lts</p>
-                            </span>
-                        </div>
-                        <p><strong>Total: $24500</strong></p>
-                    </div>
-                    <div>
-                        <img src="app/img/web/hero-img1.webp" alt="">
-                    </div>
-                    <button type="button">Pedir ahora</button>
-                </div>
-                <div class="tarjeta-oferta">
-                    <div class="info-oferta">
-                        <h3>Doble Smash Combo</h3>
-                        <div>
-                            <span>
-                                <i class="fa-solid fa-burger"></i>
-                                <p>2x Medallones de carne 100% Angus</p>
-                            </span>
-                            <span>
-                                <i class="fa-solid fa-bottle-droplet"></i>
-                                <p>Gaseosa 1.5lts</p>
-                            </span>
-                        </div>
-                        <p><strong>Total: $24500</strong></p>
-                    </div>
-                    <div>
-                        <img src="app/img/web/hero-img1.webp" alt="">
-                    </div>
-                    <button type="button">Pedir ahora</button>
-                </div>
-                <div class="tarjeta-oferta">
-                    <div class="info-oferta">
-                        <h3>Doble Smash Combo</h3>
-                        <div>
-                            <span>
-                                <i class="fa-solid fa-burger"></i>
-                                <p>2x Medallones de carne 100% Angus</p>
-                            </span>
-                            <span>
-                                <i class="fa-solid fa-bottle-droplet"></i>
-                                <p>Gaseosa 1.5lts</p>
-                            </span>
-                        </div>
-                        <p><strong>Total: $24500</strong></p>
-                    </div>
-                    <div>
-                        <img src="app/img/web/hero-img1.webp" alt="">
-                    </div>
-                    <button type="button">Pedir ahora</button>
-                </div>
-            </main>
-        </section>
-        
-        <section class="container section info-servicios">
-            <main class="servicios-main">
+    <div class="logo">
+        <img src="app/img/web/logo.png" alt="">
+    </div>
+
+    <main id="mas-vendida-hero-main" class="mas-vendida-hero-main"></main>
+
+    <footer class="botones-hero">
+        <button type="button" id="btn-ordenar-ahora">Pedir por WhatsApp</button>
+        <button type="button" id="btn-ver-menu">Ver el menú</button>
+    </footer>
+</section>
+
+<section class="container section-menu" id="section-menu">
+    <div class="botones-filtros">
+        <button type="button" class="active" id="btn-comidas-filtro">
+        <img src="app/img/web/filtro-hamburguesa.webp" alt="" srcset="">
+        </button>
+        <button type="button" id="btn-papas-filtro">
+        <img src="app/img/web/filtro-papas.webp" alt="" srcset="">
+        </button>
+        <button type="button" id="btn-bebidas-filtro">
+        <img src="app/img/web/filtro-bebida.webp" alt="" srcset="">
+        </button>
+    </div>
+
+    <div class="grid-menu" id="grid-menu">
+    </div>
+
+    <div class="paginador" id="paginador">
+    </div>
+</section>
+
+<section class="container section ofertas-especiales">
+    <header class="header-section">
+        <h2>Ofertas especiales</h2>
+        <hr>
+    </header>
+    <main class="ofertas-especiales-main">
+        <div class="tarjeta-oferta">
+            <div class="info-oferta">
+                <h3>Doble Smash Combo</h3>
                 <div>
-                    <img src="app/img/web/pago-icono.png" alt="">
-                    <h3>Aceptamos tarjetas</h3>
-                    <p>Paga de forma rápida y segura con tarjetas de débito y crédito.</p>
+                    <span>
+                        <i class="fa-solid fa-burger"></i>
+                        <p>2x Medallones de carne 100% Angus</p>
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-bottle-droplet"></i>
+                        <p>Gaseosa 1.5lts</p>
+                    </span>
                 </div>
+                <p><strong>Total: $24500</strong></p>
+            </div>
+            <div>
+                <img src="app/img/web/hero-img1.webp" alt="">
+            </div>
+            <button type="button">Pedir ahora</button>
+        </div>
+        <div class="tarjeta-oferta">
+            <div class="info-oferta">
+                <h3>Doble Smash Combo</h3>
                 <div>
-                    <img src="app/img/web/delivery-icono.png" alt="">
-                    <h3>Delivery a domicilio</h3>
-                    <p>Recibe tu pedido caliente y fresco en la puerta de tu casa.</p>
+                    <span>
+                        <i class="fa-solid fa-burger"></i>
+                        <p>2x Medallones de carne 100% Angus</p>
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-bottle-droplet"></i>
+                        <p>Gaseosa 1.5lts</p>
+                    </span>
                 </div>
+                <p><strong>Total: $24500</strong></p>
+            </div>
+            <div>
+                <img src="app/img/web/hero-img1.webp" alt="">
+            </div>
+            <button type="button">Pedir ahora</button>
+        </div>
+        <div class="tarjeta-oferta">
+            <div class="info-oferta">
+                <h3>Doble Smash Combo</h3>
                 <div>
-                    <img src="app/img/web/ubicacion-icono.png" alt="">
-                    <h3>La mejor ubicación</h3>
-                    <p>Nos encontramos en el corazón de la ciudad, ¡ven a visitarnos!</p>
+                    <span>
+                        <i class="fa-solid fa-burger"></i>
+                        <p>2x Medallones de carne 100% Angus</p>
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-bottle-droplet"></i>
+                        <p>Gaseosa 1.5lts</p>
+                    </span>
                 </div>
-            </main>
-        </section>
-        
-        <section class="container section contacto-section" id="section-contacto">
-            <header class="header-section">
-                <h2>¿Dónde estamos?</h2>
-                <hr>
-            </header>
-            <main class="seccion-contacto">
-                <!-- <div class="info-contacto">
-                    <p><i class="fa-solid fa-phone"></i>+54 383 4456789</p>
-                    <p><i class="fa-solid fa-location-dot"></i>Av. Virgen del Valle 504</p>
-                    <p><i class="fa-solid fa-envelope"></i>clubDeLaHAmburguesa@gmail.com</p>
-                    <p style="align-items: start;"><i class="fa-solid fa-clock"></i>Miércoles a lunes de 20 a 02</p>
-                </div> -->
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2749.328552670809!2d-67.51924662367217!3d-46.442186671106825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbde5df0017a993f7%3A0x2f4f1f216c564a50!2sClub%20De%20La%20Hamburguesa!5e0!3m2!1ses-419!2sar!4v1741240939114!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <p><strong>Total: $24500</strong></p>
+            </div>
+            <div>
+                <img src="app/img/web/hero-img1.webp" alt="">
+            </div>
+            <button type="button">Pedir ahora</button>
+        </div>
+        <div class="tarjeta-oferta">
+            <div class="info-oferta">
+                <h3>Doble Smash Combo</h3>
+                <div>
+                    <span>
+                        <i class="fa-solid fa-burger"></i>
+                        <p>2x Medallones de carne 100% Angus</p>
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-bottle-droplet"></i>
+                        <p>Gaseosa 1.5lts</p>
+                    </span>
                 </div>
-            </main>
-        </section>
+                <p><strong>Total: $24500</strong></p>
+            </div>
+            <div>
+                <img src="app/img/web/hero-img1.webp" alt="">
+            </div>
+            <button type="button">Pedir ahora</button>
+        </div>
+    </main>
+</section>
+
+<section class="container section info-servicios">
+    <main class="servicios-main">
+        <div>
+            <img src="app/img/web/pago-icono.png" alt="">
+            <h3>Aceptamos tarjetas</h3>
+            <p>Paga de forma rápida y segura con tarjetas de débito y crédito.</p>
+        </div>
+        <div>
+            <img src="app/img/web/delivery-icono.png" alt="">
+            <h3>Delivery a domicilio</h3>
+            <p>Recibe tu pedido caliente y fresco en la puerta de tu casa.</p>
+        </div>
+        <div>
+            <img src="app/img/web/ubicacion-icono.png" alt="">
+            <h3>La mejor ubicación</h3>
+            <p>Nos encontramos en el corazón de la ciudad, ¡ven a visitarnos!</p>
+        </div>
+    </main>
+</section>
+
+<section class="container section contacto-section" id="section-contacto">
+    <header class="header-section">
+        <h2>¿Dónde estamos?</h2>
+        <hr>
+    </header>
+    <main class="seccion-contacto">
+        <!-- <div class="info-contacto">
+            <p><i class="fa-solid fa-phone"></i>+54 383 4456789</p>
+            <p><i class="fa-solid fa-location-dot"></i>Av. Virgen del Valle 504</p>
+            <p><i class="fa-solid fa-envelope"></i>clubDeLaHAmburguesa@gmail.com</p>
+            <p style="align-items: start;"><i class="fa-solid fa-clock"></i>Miércoles a lunes de 20 a 02</p>
+        </div> -->
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2749.328552670809!2d-67.51924662367217!3d-46.442186671106825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbde5df0017a993f7%3A0x2f4f1f216c564a50!2sClub%20De%20La%20Hamburguesa!5e0!3m2!1ses-419!2sar!4v1741240939114!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </main>
+</section>
     </main>
 
     <!-- <footer class="principal-footer">
-        <div class="container">
-    <div class="footer-content">
-        <div class="logo-footer">
-            <div class="logo">
-                <img src="app/img/web/logo.png" alt="">
-            </div>
-            <ul class="social-media-footer">
-                <li><a href="#" aria-label="Visítanos en Facebook" target="_blank"><i class="fa-brands fa-facebook-f"></i>Club de la hamburguesa</a></li>
-                <li><a href="https://www.instagram.com/clubdelahamburguesa1/?hl=es" aria-label="Visítanos en Instagram" target="_blank"><i class="fa-brands fa-instagram"></i>clubdelahamburguesa1</a></li>
-            </ul>
-        </div>
-        <nav class="footer-nav">
-            <ul class="lista-navegacion-footer">
-                <li><a href="#">Inicio</a></li>
-                <span>|</span>
-                <li><a href="#section-menu">Menú</a></li>
-                <span>|</span>
-                <li><a href="#section-contacto">Contacto</a></li>
-            </ul>
-        </nav>
-    </div>
-            
-    <hr class="footer-divisor">
-    
-    <div class="final-page">
-        <div class="copy">
-            <p>Copyright©2025 | Club de la hamburguesa</p>
-        </div>
-        <p>Diseñado y desarrollado por <a href="https://mother-s-milk.github.io/Portfolio-FrancoD.Vera/" target="_blank">Franco Vera</a></p>
-    </div>
-</div> 
+        <?php
+            require_once __DIR__ . "/includes/footer.php";
+        ?>
     </footer> -->
 </body>
 </html>
