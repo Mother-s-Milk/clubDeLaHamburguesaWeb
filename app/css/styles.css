@@ -1391,7 +1391,7 @@ button,
 }
 @media screen and (max-width: 715px) {
     .tarjeta-mas-vendida-info header h1 {
-        font-size: 21px;
+        font-size: 24px;
     }
 }
 @media screen and (max-width: 635px) {
@@ -1399,7 +1399,7 @@ button,
         display: none;
     }
     .tarjeta-mas-vendida-info header h1 {
-        font-size: 18px;
+        /*font-size: 18px;*/
     }
     .botones-hero button {
         padding: 7.5px;
@@ -1427,7 +1427,7 @@ button,
         height: 100dvh;
     }
     .tarjeta-mas-vendida-info header h1 {
-        font-size: 21px;
+        /*font-size: 21px;*/
     }
     .tarjeta-mas-vendida-info p {
         font-size: 15px;
@@ -1477,7 +1477,7 @@ button,
 }
 @media screen and (max-width: 426px) {
     .tarjeta-mas-vendida-info header h1 {
-        font-size: 18px;
+        /*font-size: 18px;*/
     }
     .tarjeta-mas-vendida-img {
         /*width: calc(80%);
@@ -1490,7 +1490,7 @@ button,
 }
 @media screen and (max-width: 408px) {
     .tarjeta-mas-vendida-info p {
-        font-size: 12px;
+        /*font-size: 12px;*/
     }
     .tarjeta-mas-vendida-img {
         width: calc(100%);
@@ -1507,21 +1507,20 @@ button,
 }
 @media screen and (max-width: 348px) {
     .tarjeta-mas-vendida-info header h1 {
-        font-size: 17px;
+        /*font-size: 17px;*/
     }
 }
 @media screen and (max-width: 332px) {
     .tarjeta-mas-vendida-info header h1 {
-        font-size: 16px;
+        /*font-size: 16px;*/
     }
 }
 @media screen and (max-width: 336px) {
     .hero {
         height: 100dvh;
     }
-    .botones-hero button {
-        padding: 7.5px;
-        font-size: 12px;
+    .botones-hero {
+        flex-direction: column;
     }
 }
 @media screen and (max-width: 316px) {
@@ -1530,8 +1529,9 @@ button,
     }
 }
 @media screen and (max-width: 277px) {
-    .botones-hero {
-        flex-direction: column;
+    .botones-hero button {
+        padding: 7.5px;
+        font-size: 12px;
     }
 }
 
@@ -1775,7 +1775,7 @@ button,
 }
 @media screen and (max-width: 441px) {
     .section-menu {
-        padding: 30px 90px;
+        padding: 30px 60px;
     }
     .grid-menu {
         grid-template-columns: repeat(1, 1fr);
@@ -1804,28 +1804,28 @@ button,
 }
 @media screen and (max-width: 434px) {
     .section-menu {
-        padding: 30px 75px;
+        padding: 30px 45px;
     }
 }
 @media screen and (max-width: 404px) {
     .section-menu {
-        padding: 30px 60px;
+        padding: 30px;
     }
 }
 @media screen and (max-width: 374px) {
     .section-menu {
-        padding: 30px 45px;
+        padding: 15px;
     }
 }
 @media screen and (max-width: 344px) {
-    .section-menu {
+    /*.section-menu {
         padding: 30px;
-    }
+    }*/
 }
 @media screen and (max-width: 314px) {
-    .section-menu {
+    /*.section-menu {
         padding: 15px;
-    }
+    }*/
 }
 @media screen and (max-width: 284px) {
     .botones-filtros button img {
