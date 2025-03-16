@@ -1589,6 +1589,7 @@ button,
 @media screen and (max-width: 456px) {
     .hero {
         padding: 15px 30px;
+        min-height: 100dvh;
     }
 }
 @media screen and (max-width: 426px) {
