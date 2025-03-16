@@ -18,6 +18,99 @@ body {
     -moz-osx-font-smoothing: grayscale; /* Mejora en Firefox */
     text-rendering: optimizeLegibility;
 }
+/*Preloader*/
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.preloader-logo {
+    width: 120px;
+    height: auto;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+/*Preloader*/
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.preloader-logo {
+    width: 120px;
+    height: auto;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+/**/
+@keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.visible {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
 
 ul {
     list-style-type: none;
@@ -659,14 +752,14 @@ button,
     padding: 30px;
     background: rgba(0, 0, 0, .3);
     backdrop-filter: blur(15px);
-    transition: gap .3s ease, padding .3s ease;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: gap .3s ease, padding .3s ease;
 }
 
 .tarjeta-mas-vendida-info {
     width: calc(60%);
     max-width: calc(60%);
-    transition: width .3s ease;
+    transition: width .3s ease, padding .3s ease;
 }
 
 .tarjeta-mas-vendida-info header h1 {
@@ -702,17 +795,27 @@ button,
     font-weight: 600;
 }
 
+@keyframes flotar {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-9px);
+    }
+  }
+
 .tarjeta-mas-vendida-img {
     width: calc(40%);
     max-width: calc(40%);
     transition: width .3s ease;
+    animation: zoomIn;
 }
 
 .tarjeta-mas-vendida-img img {
     display: block;
     width: 100%;
     border-radius: 15px;
-    box-shadow: 0px 0px 3px rgba(0, 0, 0, .5);
+    animation: flotar 3s ease-in-out infinite;
 }
 
 .botones-hero {
@@ -726,8 +829,7 @@ button,
     padding: 15px;
     font-size: 18px;
     border-radius: 50px;
-    border: 1px solid #000;
-    box-shadow: 3px 3px 0px rgba(0, 0, 0, 1);
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 1);
     transition: background-color .3s ease, box-shadow .3s ease, padding .3s ease, font-size .3s ease;
     font-weight: 600;
 }
@@ -822,7 +924,7 @@ button,
 .tarjeta-menu {
     border: 1px solid rgba(214, 214, 214, .5);
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
+    border-radius: 30px;
     padding: 30px;
     display: flex;
     align-items: center;
@@ -834,7 +936,7 @@ button,
 .tarjeta-menu img {
     width: 100%;
     display: block;
-    border-radius: 7.5px;
+    border-radius: 15px;
     margin-bottom: 7.5px;
 }
 
@@ -851,12 +953,14 @@ button,
     font-weight: 600;
     font-size: 21px;
     color: #000;
+    transition: font-size .3s ease;
 }
 
 .info-burger p:last-child {
     color: #f85c5c;
     font-weight: 500;
     font-size: 18px;
+    transition: font-size .3s ease;
 }
 
 .botones-burger {
@@ -933,6 +1037,10 @@ button,
 /*********/
 /*Ofertas*/
 /*********/
+.section-ofertas-especiales {
+    padding: 30px 90px;
+    transition: padding .3s ease;
+}
 .header-section {
     margin-bottom: 30px;
     display: flex;
@@ -958,14 +1066,15 @@ button,
 
 .ofertas-especiales-main {
     display: flex;
+    align-items: start;
     gap: 30px;
-    overflow-x: auto; /* Permite desplazamiento horizontal */
-    scroll-snap-type: x mandatory; /* Hace que las tarjetas se ajusten en el scroll */
-    padding-bottom: 45px; /* Espaciado para que no corte la sombra del botón */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 45px;
 }
 
 .ofertas-especiales-main::-webkit-scrollbar {
-    height: 3px; /*Ancho de la barra de desplazamiento*/
+    height: 3px;
     border-radius: 7.5px;
 }
   
@@ -989,9 +1098,9 @@ button,
 .tarjeta-oferta {
     background-color: #fff;
     border: 1px solid #e0e0e0;
-    border-radius: 15px;
+    border-radius: 30px;
     box-shadow: 0 3px 9px rgba(0, 0, 0, 0.05);
-    padding: 30px;
+    padding: 30px 30px 45px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -999,14 +1108,14 @@ button,
     position: relative;
 
     flex: 0 0 auto; /* Mantiene el tamaño sin contraerse */
-    width: 600px; /* Tamaño fijo para cada tarjeta */
-    max-width: 600px;
+    width: calc(50% - 45px);
+    max-width: calc(50% - 45px);
     scroll-snap-align: center;
 }
 
 .tarjeta-oferta > div {
-    width: calc(50% - 15px);
-    max-width: calc(50% - 15px);
+    width: calc(50%);
+    max-width: calc(50%);
 }
 
 .info-oferta {
@@ -1019,8 +1128,9 @@ button,
 .info-oferta h3 {
     font-size: 21px;
     color: #000;
-    font-weight: 600;
+    font-weight: 700;
     text-align: center;
+    transition: font-size .3s ease;
 }
 
 .info-oferta > div {
@@ -1030,26 +1140,29 @@ button,
     gap: 3.75px;
 }
 
-.info-oferta > div span {
+.info-oferta > div > span {
     display: flex;
+    align-items: center;
     gap: 7.5px;
+    font-size: 18px;
+    transition: font-size .3s ease;
 }
 
-.info-oferta i {
-    font-size: 21px;
-    width: 24px;
+.info-oferta > div span i {
+    font-size: 7.5px;
+    display: flex;
     text-align: center;
     color: #f85c5c;
 }
 
 .info-oferta p {
-    font-size: 18px;
     color: #000;
     font-weight: 400;
 }
 
 .info-oferta p strong {
     font-weight: 600;
+    font-size: 21px;
 }
 
 .tarjeta-oferta img {
@@ -1058,18 +1171,17 @@ button,
 }
 
 .tarjeta-oferta button {
-    padding: 12px 24px;
+    padding: 15px 30px;
     font-size: 18px;
-    font-weight: 500;
-    border: none;
-    border-radius: 30px;
+    font-weight: 600;
+    border-radius: 50px;
     background-color: #f85c5c;
     color: #fff;
     position: absolute;
-    bottom: -24px;
+    bottom: -26px;
     left: 50%;
     transform: translateX(-50%);
-    transition: background-color .3s ease, box-shadow .3s ease;
+    transition: background-color .3s ease, box-shadow .3s ease, font-size .3s ease, padding .3s ease;
 }
 
 .tarjeta-oferta button:hover {
@@ -1283,13 +1395,12 @@ button,
 /*Notificacion de producto agregado*/
 /***********************************/
 .custom-toast {
-    background-color: #1e293b !important;  /* Fondo oscuro */
-    color: #fff !important;  /* Texto blanco */
+    background-color: #fff !important;  /* Fondo oscuro */
+    color: #000 !important;  /* Texto blanco */
     font-family: "Quicksand", sans-serif !important;  /* Fuente personalizada */
     font-size: 15px !important;
-    border-radius: 15px !important;  /* Bordes redondeados */
     border: 1px solid #000 !important;  /* Borde amarillo */
-    box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.3) !important; /* Sombra */
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 1) !important; /* Sombra */
     padding: 15px !important;
     text-align: center !important;
     display: flex;
@@ -1370,6 +1481,9 @@ button,
     }
 }
 @media screen and (max-width: 795px) {
+    .login-cart-nav a span:last-child {
+        display: none;
+    }
     .tarjeta-mas-vendida-info header h1 {
         font-size: 24px;
     }
@@ -1391,15 +1505,12 @@ button,
 }
 @media screen and (max-width: 715px) {
     .tarjeta-mas-vendida-info header h1 {
-        font-size: 24px;
+        font-size: 21px;
     }
 }
 @media screen and (max-width: 635px) {
-    .login-cart-nav a span:last-child {
-        display: none;
-    }
     .tarjeta-mas-vendida-info header h1 {
-        /*font-size: 18px;*/
+        font-size: 18px;
     }
     .botones-hero button {
         padding: 7.5px;
@@ -1424,35 +1535,40 @@ button,
 @media screen and (max-width: 555px) {
     .hero {
         padding: 15px 90px;
-        height: 100dvh;
     }
     .tarjeta-mas-vendida-info header h1 {
-        /*font-size: 21px;*/
+        font-size: 21px;
     }
     .tarjeta-mas-vendida-info p {
         font-size: 15px;
     }
     .mas-vendida-hero-main {
         flex-direction: column-reverse;
-        gap: 7.5px;
-        border-radius: 15px;
+        gap: 0px;
+        padding: 0px;
+        background: transparent;
+        backdrop-filter: blur(0px);
+        box-shadow: 0 0px 0px transparent;
     }
     .tarjeta-mas-vendida-info {
         width: calc(100%);
         max-width: calc(100%);
+        border-radius: 15px;
+        padding: 15px;
+        background: rgba(0, 0, 0, .6);
+        backdrop-filter: blur(15px);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
     }
     .tarjeta-mas-vendida-img {
-        /*width: calc(60%);
-        max-width: calc(60%);*/
-        width: calc(100%);
-        max-width: calc(100%);
+        width: calc(60%);
+        max-width: calc(60%);
     }
     .tarjeta-mas-vendida-img img {
         border-radius: 7.5px;
     }
     .logo {
-        /*width: 60px;
-        height: 60px;*/
+        width: 60px;
+        height: 60px;
     }
 }
 @media screen and (max-width: 546px) {
@@ -1477,24 +1593,16 @@ button,
 }
 @media screen and (max-width: 426px) {
     .tarjeta-mas-vendida-info header h1 {
-        /*font-size: 18px;*/
-    }
-    .tarjeta-mas-vendida-img {
-        /*width: calc(80%);
-        max-width: calc(80%);*/
-    }
-    .tarjeta-mas-vendida-img {
-        width: calc(100%);
-        max-width: calc(100%);
+        font-size: 18px;
     }
 }
 @media screen and (max-width: 408px) {
     .tarjeta-mas-vendida-info p {
-        /*font-size: 12px;*/
+        font-size: 12px;
     }
     .tarjeta-mas-vendida-img {
-        width: calc(100%);
-        max-width: calc(100%);
+        width: calc(80%);
+        max-width: calc(80%);
     }
 }
 @media screen and (max-width: 378px) {
@@ -1507,33 +1615,34 @@ button,
 }
 @media screen and (max-width: 348px) {
     .tarjeta-mas-vendida-info header h1 {
-        /*font-size: 17px;*/
+        font-size: 17px;
     }
 }
 @media screen and (max-width: 332px) {
     .tarjeta-mas-vendida-info header h1 {
-        /*font-size: 16px;*/
+        font-size: 16px;
     }
 }
 @media screen and (max-width: 336px) {
-    .hero {
-        height: 100dvh;
-    }
-    .botones-hero {
-        flex-direction: column;
-    }
-}
-@media screen and (max-width: 316px) {
-    .mas-vendida-hero-main {
-        padding: 7.5px;
-    }
-}
-@media screen and (max-width: 277px) {
     .botones-hero button {
         padding: 7.5px;
         font-size: 12px;
     }
 }
+@media screen and (max-width: 277px) {
+    .botones-hero {
+        flex-direction: column;
+        width: 100%;
+    }
+    .botones-hero button {
+        width: 100%;
+    }
+}
+
+
+
+
+
 
 /*****************/
 /*****************/
@@ -1581,7 +1690,7 @@ button,
     }
     
     .info-burger p:last-child {
-        font-size: 16px;
+        font-size: 17px;
     }
     
     .botones-burger {
@@ -1597,6 +1706,10 @@ button,
 @media screen and (max-width: 1058px) {
     .tarjeta-menu {
         padding: 15px;
+        border-radius: 15px;
+    }
+    .tarjeta-menu img {
+        border-radius: 7.5px;
     }
     .botones-filtros {
         gap: 15px;
@@ -1610,16 +1723,10 @@ button,
     .section-menu {
         gap: 15px;
     }
-    .paginador {
-        margin-top: 15px;
-    }
 }
 @media screen and (max-width: 938px) {
     .section-menu {
         padding: 15px;
-    }
-    .paginador {
-        margin-top: 7.5px;
     }
 }
 @media screen and (max-width: 908px) {
@@ -1649,7 +1756,7 @@ button,
         font-size: 15px;
     }
     .info-burger p:last-child {
-        font-size: 15px;
+        font-size: 14px;
     }
     .botones-burger {
         gap: 9px;
@@ -1665,7 +1772,7 @@ button,
         font-size: 14px;
     }
     .info-burger p:last-child {
-        font-size: 15px;
+        font-size: 13px;
     }
     .botones-burger {
         gap: 7.5px;
@@ -1678,7 +1785,7 @@ button,
 }
 @media screen and (max-width: 741px) {
     .section-menu {
-        padding: 30px 90px;
+        padding: 15px 90px;
     }
     .grid-menu {
         grid-template-columns: repeat(2, 1fr);
@@ -1690,12 +1797,10 @@ button,
     .info-burger p:last-child {
         font-size: 15px;
     }
-    
     .botones-burger button {
         width: 30px;
         height: 30px;
-        border-radius: 7.5px;
-        font-size: 16px;
+        font-size: 15px;
     }
 }
 @media screen and (max-width: 704px) {
@@ -1729,13 +1834,12 @@ button,
     }
     
     .info-burger p:last-child {
-        font-size: 15px;
+        font-size: 14px;
     }
     
     .botones-burger button {
-        width: 27px;
-        height: 27px;
-        border-radius: 7.5px;
+        width: 30px;
+        height: 30px;
         font-size: 15px;
     }
 }
@@ -1745,14 +1849,7 @@ button,
     }
     
     .info-burger p:last-child {
-        font-size: 14px;
-    }
-    
-    .botones-burger button {
-        width: 27px;
-        height: 27px;
-        border-radius: 7.5px;
-        font-size: 15px;
+        font-size: 13px;
     }
 }
 @media screen and (max-width: 499px) {
@@ -1765,22 +1862,75 @@ button,
         gap: 7.5px;
         padding: 7.5px;
     }
-    .tarjeta-menu {
+    .botones-filtros {
+        gap: 7.5px;
         padding: 7.5px;
-        border-radius: 7.5px;
     }
-    .tarjeta-menu img {
-        border-radius: 3.75px;
-    }
-}
-@media screen and (max-width: 441px) {
     .section-menu {
-        padding: 30px 60px;
+        padding: 30px 45px;
     }
     .grid-menu {
         grid-template-columns: repeat(1, 1fr);
     }
+    
+    .tarjeta-menu {
+        padding: 15px;
+        border-radius: 15px
+    }
+    
+    .tarjeta-menu img {
+        border-radius: 7.5px;
+    }
+    
     .info-burger p:first-child {
+        font-size: 21px;
+    }
+    
+    .info-burger p:last-child {
+        font-size: 18px;
+    }
+
+    .botones-burger {
+        gap: 15px;
+    }
+    
+    .botones-burger button {
+        padding: 7.5px;
+        width: 36px;
+        height: 36px;
+        border-radius: 7.5px;
+        font-size: 18px;
+    }
+}
+@media screen and (max-width: 414px) {
+    .section-menu {
+        padding: 30px;
+    }
+}
+@media screen and (max-width: 384px) { 
+    .info-burger p:first-child {
+        font-size: 18px;
+    }
+    
+    .info-burger p:last-child {
+        font-size: 17px;
+    }
+
+    .botones-burger {
+        gap: 12px;
+    }
+    
+    .botones-burger button {
+        width: 33px;
+        height: 33px;
+        font-size: 17px;
+    }
+}
+@media screen and (max-width: 342px) {
+    .section-menu {
+        padding: 15px;
+    }
+    /*.info-burger p:first-child {
         font-size: 16px;
     }
     
@@ -1788,61 +1938,340 @@ button,
         font-size: 15px;
     }
     
+    .botones-burger {
+        gap: 9px;
+    }
+    
     .botones-burger button {
         width: 30px;
         height: 30px;
-        border-radius: 7.5px;
-        font-size: 16px;
-    }
-    .tarjeta-menu {
-        padding: 15px;
-        border-radius: 15px;
-    }
-    .tarjeta-menu img {
-        border-radius: 7.5px;
-    }
-}
-@media screen and (max-width: 434px) {
-    .section-menu {
-        padding: 30px 45px;
-    }
-}
-@media screen and (max-width: 404px) {
-    .section-menu {
-        padding: 30px;
-    }
-}
-@media screen and (max-width: 374px) {
-    .section-menu {
-        padding: 15px;
-    }
-}
-@media screen and (max-width: 344px) {
-    /*.section-menu {
-        padding: 30px;
-    }*/
-}
-@media screen and (max-width: 314px) {
-    /*.section-menu {
-        padding: 15px;
+        font-size: 15px;
     }*/
 }
 @media screen and (max-width: 284px) {
-    .botones-filtros button img {
-        width: 30px;
-        height: 30px;
-    }
-    .info-burger p:first-child {
+    /*.info-burger p:first-child {
         font-size: 15px;
     }
-    .tarjeta-menu {
-        padding: 7.5px;
-        border-radius: 7.5px;
+    
+    .info-burger p:last-child {
+        font-size: 14px;
     }
-    .tarjeta-menu img {
-        border-radius: 3.75px;
+    
+    .botones-burger {
+        gap: 7.5px;
+    }
+    
+    .botones-burger button {
+        width: 27px;
+        height: 27px;
+        font-size: 14px;
+    }
+    .botones-filtros button img{
+        width: 30px;
+        height: 30px;
+    }*/
+}
+@media screen and (max-width: 271px) {
+    /*.info-burger p:first-child {
+        font-size: 14px;
+    }
+    
+    .info-burger p:last-child {
+        font-size: 13px;
+    }*/
+}
+@media screen and (max-width: 257px) {
+    /*.info-burger p:first-child {
+        font-size: 13px;
+    }*/
+}
+
+
+
+
+
+
+/**********************************/
+/**********************************/
+/*Seccion de ofertas y promociones*/
+/**********************************/
+/**********************************/
+@media screen and (max-width: 1266px) {
+    .section-ofertas-especiales {
+        padding: 30px 75px;
     }
 }
+@media screen and (max-width: 1236px) {
+    .section-ofertas-especiales {
+        padding: 30px 60px;
+    }
+}
+@media screen and (max-width: 1206px) {
+    .section-ofertas-especiales {
+        padding: 30px 45px;
+    }
+}
+@media screen and (max-width: 1176px) {
+    .section-ofertas-especiales {
+        padding: 30px;
+    }
+}
+@media screen and (max-width: 1146px) {
+    .tarjeta-oferta {
+        padding: 15px 15px 30px;
+        width: calc(50% - 37.5px);
+        max-width: calc(50% - 37.5px);
+    }
+    .tarjeta-oferta button {
+        padding: 12px 24px;
+        font-size: 16px;
+        bottom: -22.5px;
+    }
+}
+@media screen and (max-width: 1071px) {
+    .ofertas-especiales-main {
+        gap: 15px;
+    }
+    .tarjeta-oferta {
+        width: calc(50% - 22.5px);
+        max-width: calc(50% - 22.5px);
+    }
+}
+@media screen and (max-width: 1041px) {
+    .section-ofertas-especiales {
+        padding: 15px;
+    }
+}
+@media screen and (max-width: 1011px) {
+    .info-oferta {
+        gap: 7.5px;
+    }
+    
+    .info-oferta h3 {
+        font-size: 18px;
+    }
+    
+    .info-oferta > div span {
+        font-size: 16px;
+    }
+    
+    .info-oferta p strong {
+        font-size: 18px;
+    }
+    .tarjeta-oferta button {
+        bottom: -21px;
+    }
+}
+@media screen and (max-width: 890px) {
+    .info-oferta h3 {
+        font-size: 17px;
+    }
+    
+    .info-oferta > div span {
+        font-size: 15px;
+    }
+    
+    .info-oferta p strong {
+        font-size: 17px;
+    }
+    .tarjeta-oferta button {
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 850px) {
+    .info-oferta h3 {
+        font-size: 16px;
+    }
+    
+    .info-oferta > div span {
+        font-size: 15px;
+    }
+    
+    .info-oferta p strong {
+        font-size: 16px;
+    }
+    .tarjeta-oferta button {
+        font-size: 15px;
+        bottom: -21px;
+    }
+}
+@media screen and (max-width: 810px) {
+    .ofertas-especiales-main {
+        padding-bottom: 30px;
+    }
+    .tarjeta-oferta {
+        flex-direction: column-reverse;
+        width: calc((100% - 60px) / 3);
+        max-width: calc((100% - 60px) / 3);
+        gap: 7.5px;
+        padding: 15px;
+    }
+    
+    .tarjeta-oferta > div {
+        width: calc(100%);
+        max-width: calc(100%);
+    }
+    
+    .info-oferta h3 {
+        font-size: 16px;
+    }
+    
+    .info-oferta > div span {
+        font-size: 15px;
+    }
+    
+    .info-oferta p strong {
+        font-size: 16px;
+    }
+    .tarjeta-oferta button {
+        padding: 7.5px 15px;
+        position: relative;
+        display: flex;
+        width: 100%;
+        bottom: 0;
+    }
+}
+@media screen and (max-width: 741px) {
+    .tarjeta-oferta {
+        width: calc((100% - 45px) / 2);
+        max-width: calc((100% - 45px) / 2);
+    }
+    
+    .info-oferta h3 {
+        font-size: 18px;
+    }
+    
+    .info-oferta > div span {
+        font-size: 16px;
+    }
+    
+    .info-oferta p strong {
+        font-size: 18px;
+    }
+    .tarjeta-oferta button {
+        padding: 9px 18px;
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 584px) {
+    .info-oferta h3 {
+        font-size: 16px;
+    }
+    
+    .info-oferta > div span {
+        font-size: 15px;
+    }
+    
+    .info-oferta p strong {
+        font-size: 16px;
+    }
+    .tarjeta-oferta button {
+        padding: 7.5px 15px;
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 513px) {
+    .info-oferta h3 {
+        font-size: 15px;
+    }
+    
+    .info-oferta > div span {
+        font-size: 14px;
+    }
+    
+    .info-oferta p strong {
+        font-size: 15px;
+    }
+    .tarjeta-oferta button {
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 471px) {
+    .ofertas-especiales-main {
+        padding-bottom: 15px;
+    }
+    .tarjeta-oferta {
+        border-radius: 30px;
+        width: calc(100% - 30px);
+        max-width: calc(100% - 30px);
+    }
+    .section-ofertas-especiales {
+        padding: 15px 45px;
+    }
+    .info-oferta h3 {
+        font-size: 18px;
+    }
+    
+    .info-oferta > div span {
+        font-size: 16px;
+    }
+    
+    .info-oferta p strong {
+        font-size: 18px;
+    }
+    .tarjeta-oferta button {
+        padding: 9px 18px;
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 434px) {
+    .section-ofertas-especiales {
+        padding: 15px 30px;
+    }
+}
+@media screen and (max-width: 404px) {
+    .info-oferta h3 {
+        font-size: 17px;
+    }
+    
+    .info-oferta > div span {
+        font-size: 15px;
+    }
+    
+    .info-oferta p strong {
+        font-size: 17px;
+    }
+    .tarjeta-oferta button {
+        padding: 7.5px 15px;
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 387px) {
+    .section-ofertas-especiales {
+        padding: 15px;
+    }
+}
+@media screen and (max-width: 357px) {
+    .info-oferta h3 {
+        font-size: 15px;
+    }
+    
+    .info-oferta > div span {
+        font-size: 14px;
+    }
+    
+    .info-oferta p strong {
+        font-size: 15px;
+    }
+    .tarjeta-oferta button {
+        padding: 7.5px 15px;
+        font-size: 14px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /***************/
@@ -1915,10 +2344,6 @@ button,
     .header-section {
         margin-bottom: 15px;
     }
-    .ofertas-especiales-main {
-        gap: 15px;
-        padding-bottom: 45px;
-    }
 }
 @media screen and (max-width: 689px) {
     .servicios-main > div {
@@ -1932,38 +2357,10 @@ button,
        max-width: calc(36% - 15px);
     }
 }
-@media screen and (max-width: 660px) {
-    .tarjeta-oferta {
-        width: 570px;
-    }
-}
 @media screen and (max-width: 630px) {
     .servicios-main > div {
         width: calc(39% - 15px);
        max-width: calc(39% - 15px);
-    }
-    .tarjeta-oferta {
-        width: 540px;
-    }
-}
-@media screen and (max-width: 609px) {
-    .tarjeta-oferta {
-        flex-direction: column-reverse;
-        width: 420px;
-        padding: 15px;
-        padding-bottom: 30px;
-        gap: 7.5px;
-    }
-    .tarjeta-oferta > div {
-        width: calc(100%);
-        max-width: calc(100%);
-    }
-    .info-oferta {
-        align-items: center;
-        gap: 3.75px;
-    }
-    .info-oferta h3 {
-        font-size: 24px;
     }
 }
 @media screen and (max-width: 584px) {
@@ -2000,9 +2397,6 @@ button,
         width: calc(50% - 15px);
         max-width: calc(50% - 15px);
     }
-    .tarjeta-oferta {
-        width: 390px;
-    }
 }
 @media screen and (max-width: 465px) {
     .carrito-container {
@@ -2021,29 +2415,10 @@ button,
         font-size: 24px;
     }
 }
-@media screen and (max-width: 450px) {
-    .tarjeta-oferta {
-        width: 360px;
-    }
-    .info-oferta > div span p {
-        font-size: 17px;
-    }
-}
 @media screen and (max-width: 435px) {
     .servicios-main > div {
         width: calc(60%);
        max-width: calc(60%);
-    }
-}
-@media screen and (max-width: 420px) {
-    .tarjeta-oferta {
-        width: 330px;
-    }
-    .info-oferta > div span p {
-        font-size: 15px;
-    }
-    .tarjeta-oferta button {
-        font-size: 15px;
     }
 }
 @media screen and (max-width: 414px) {
@@ -2084,16 +2459,6 @@ button,
         max-width: calc(66%);
     }
 }
-@media screen and (max-width: 390px) {
-    .tarjeta-oferta {
-        width: 300px;
-        padding: 7.5px;
-        padding-bottom: 27px;
-    }
-    .info-oferta > div span p {
-        font-size: 15px;
-    }
-}
 @media screen and (max-width: 379px) {
     .servicios-main > div {
         width: calc(69%);
@@ -2114,12 +2479,6 @@ button,
 @media screen and (max-width: 360px) {
     .tarjeta-carrito {
         padding: 7.5px;
-    }
-    .tarjeta-oferta {
-        width: 270px;
-    }
-    .tarjeta-oferta button {
-        width: 57%;
     }
 }
 @media screen and (max-width: 345px) {
@@ -2156,26 +2515,6 @@ button,
         max-width: calc(81%);
     }
 }
-@media screen and (max-width: 330px) {
-    .tarjeta-oferta {
-        width: 240px;
-    }
-    .header-section h2 {
-        font-size: 21px;
-    }
-    .info-oferta h3 {
-        font-size: 18px;
-    }
-    .info-oferta > p:last-child {
-        font-size: 15px;
-    }
-    .tarjeta-oferta button {
-        width: 63%;
-    }
-    .tarjeta-oferta button {
-        bottom: -21px;
-    }
-}
 @media screen and (max-width: 315px) {
     .servicios-main > div {
         width: calc(87%);
@@ -2185,9 +2524,6 @@ button,
 @media screen and (max-width: 300px) {
     .header-section h2 {
         font-size: 18px;
-    }
-    .tarjeta-oferta {
-        width: 100%;
     }
 }
 @media screen and (max-width: 295px) {
@@ -2249,25 +2585,12 @@ button,
         padding: 7.5px;
     }
 }
-@media screen and (max-width: 264px) {
-    .tarjeta-oferta button {
-        padding: 9px 21px;
-        bottom: -18px;
-    }
-}
-
 @media screen and (max-width: 260px) {
     .servicios-main > div {
         padding: 3.75px;
     }
     .header-section h2 {
         font-size: 15px;
-    }
-}
-@media screen and (max-width: 254px) {
-    .tarjeta-oferta button {
-        padding: 7.5px 15px;
-        bottom: -15px;
     }
 }
 @media screen and (max-width: 245px) {
@@ -2290,11 +2613,6 @@ button,
     .tarjeta-carrito img {
         display: none;
     }
-    .tarjeta-oferta button {
-        width: 75%;
-        padding: 7.5px 15px;
-        bottom: -15px;
-    }
 }
 @media screen and (max-width: 209px) {
     .servicios-main > div h3 {
@@ -2302,11 +2620,6 @@ button,
     }
     .servicios-main > div p {
         font-size: 12px;
-    }
-}
-@media screen and (max-width: 203px) {
-    .tarjeta-oferta button {
-        width: 90%;
     }
 }
 @media screen and (max-width: 202px) {
@@ -2328,18 +2641,6 @@ button,
     }
     
     .paginador span {
-        font-size: 12px;
-    }
-}
-@media screen and (max-width: 174px) {
-    .tarjeta-oferta button {
-        width: 81%;
-        font-size: 12px;
-    }
-}
-@media screen and (max-width: 166px) {
-    .tarjeta-oferta button {
-        width: 90%;
         font-size: 12px;
     }
 }

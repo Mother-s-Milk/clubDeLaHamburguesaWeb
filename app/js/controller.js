@@ -6,19 +6,15 @@ const controller = {
     masVendida: {
         id: 0,
         nombre: '',
-        categoria: '',
-        precioUnitario: 0,
+        descripcion: '',
+        precio: 0,
         urlImagen: '',
         cantidad: 1
     },
     consultarHamburguesaMasVendida: () => {
         service.consultarHamburguesaMasVendida()
             .then(response => {
-                controller.masVendida.id = response.id;
-                controller.masVendida.nombre = response.nombre;
-                controller.masVendida.categoria = response.categoria;
-                controller.masVendida.precioUnitario = response.precioUnitario;
-                controller.masVendida.urlImagen = response.urlImagen;
+                controller.masVendida = response;
                 controller.renderMasVendida(controller.masVendida);
         });
     },
@@ -34,7 +30,7 @@ const controller = {
         let masVendidaTarjeta = `
             <div class="tarjeta-mas-vendida-info">
                 <header>
-                    <h1>Te presentamos a la más pedida del Club: la <span class="nombre-mas-pedida">Cuarto de libra simple</span></h1>
+                    <h1>Te presentamos a la más pedida del Club: la <span class="nombre-mas-pedida">${masVendida.nombre}</span></h1>
                 </header>
                 <main>
                     <p>${masVendida.descripcion || "¡Una fiesta de sabores! ¡No te la podés perder!"}</p>
@@ -66,7 +62,6 @@ const controller = {
     consultarPlatosPrincipales: () => {
         service.consultarPlatosPrincipales()
             .then(response => {
-                console.log(response);
                 controller.comidas = response;
                 controller.consultarPapas();
         });
@@ -103,7 +98,7 @@ const controller = {
 
             let contenidoHTML = itemsAMostrar.map(producto => `
                 <div class="tarjeta-menu">
-                    <img src="${producto.urlImagen}" alt="">
+                    <img src="${producto.urlImagen}" alt="" data-src="${producto.urlImagen}" class="lazy-load">
                     <div class="info-burger">
                         <p>${producto.nombre}</p>
                         <p>$${producto.precioUnitario}</p>
@@ -168,6 +163,15 @@ const controller = {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    window.addEventListener("load", () => {
+        const preloader = document.querySelector(".preloader");
+        preloader.style.opacity = "0";
+        preloader.style.visibility = "hidden";
+        setTimeout(() => {
+            preloader.style.display = "none";
+        }, 1800);
+    });
+    
     carritoController.list();
 
     const navbar = document.querySelector(".sidebar");
@@ -178,9 +182,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     controller.consultarHamburguesaMasVendida();
+
+    const elementos = document.querySelectorAll(".hidden");
+    const observerHero = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observerHero.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    elementos.forEach(el => observerHero.observe(el));
     
     controller.solicitarProductos();
     
+    /**/
     const btnComidasFiltro = document.getElementById('btn-comidas-filtro');
     const btnPapasFiltro = document.getElementById('btn-papas-filtro');
     const btnBebidasFiltro = document.getElementById('btn-bebidas-filtro');
@@ -265,5 +282,15 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener('load', checkScrollAndAnimations);
     //Ejecutar la función en cada evento de desplazamiento (scroll)
     window.addEventListener('scroll', checkScrollAndAnimations);
+
+    /*Boton hero whatsapp*/
+    document.getElementById("btn-ordenar-ahora").addEventListener("click", function() {
+        const mensaje = 'Hola, quisiera hacer un pedido.'; // Define el mensaje que quieres enviar
+        const numeroWhatsApp = '5492975488673'; // Reemplaza con el número de WhatsApp del negocio
+        const url = `https://wa.me/${numeroWhatsApp}`;
+    
+        // Abrir WhatsApp
+        window.open(url, '_blank');
+    });
     
 });

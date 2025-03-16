@@ -413,9 +413,9 @@
     "masVendida":
         {
             "id": 1,
-            "nombre": "Cheese Simple",
+            "nombre": "Americana doble",
             "categoria": "Plato principal",
             "precioUnitario": 8000,
-            "urlImagen": "app/img/comidas/cheese.jpg"
+            "urlImagen": "app/img/comidas/americana.avif"
         }
 }
