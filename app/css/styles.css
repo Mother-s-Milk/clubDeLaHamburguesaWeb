@@ -1589,7 +1589,11 @@ button,
 @media screen and (max-width: 456px) {
     .hero {
         padding: 15px 30px;
-        min-height: 100dvh;
+        min-height: 90dvh;
+    }
+    .tarjeta-mas-vendida-img {
+        width: calc(80%);
+        max-width: calc(80%);
     }
 }
 @media screen and (max-width: 426px) {
@@ -1600,10 +1604,6 @@ button,
 @media screen and (max-width: 408px) {
     .tarjeta-mas-vendida-info p {
         font-size: 12px;
-    }
-    .tarjeta-mas-vendida-img {
-        width: calc(80%);
-        max-width: calc(80%);
     }
 }
 @media screen and (max-width: 378px) {
