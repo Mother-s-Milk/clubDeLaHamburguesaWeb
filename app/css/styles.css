@@ -1595,11 +1595,8 @@ button,
     }
 }
 @media screen and (max-width: 378px) {
-    .hero {
-        padding: 0.9375rem; /*15px*/
-    }
     .botones-hero {
-        gap: 7.5px;
+        flex-direction: column-reverse;
     }
 }
 @media screen and (max-width: 348px) {
@@ -1607,15 +1604,23 @@ button,
         font-size: 17px;
     }
 }
+@media screen and (max-width: 336px) {
+    .botones-hero button {
+        padding: 7.5px;
+        font-size: 12px;
+    }
+}
 @media screen and (max-width: 332px) {
     .tarjeta-mas-vendida-info header h1 {
         font-size: 16px;
     }
 }
-@media screen and (max-width: 336px) {
+@media screen and (max-width: 324px) {
+    .hero {
+        padding: 0.9375rem;
+    }
     .botones-hero button {
-        padding: 7.5px;
-        font-size: 12px;
+        width: 100%;
     }
 }
 @media screen and (max-width: 277px) {
